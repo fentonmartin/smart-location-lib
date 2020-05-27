@@ -1,6 +1,6 @@
 package io.nlopez.smartlocation.location;
 
-import io.nlopez.smartlocation.listener.ServiceConnectionListener;
+import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
 
 /**
  * An extension of the {@link LocationProvider} interface for location providers that utilize 3rd

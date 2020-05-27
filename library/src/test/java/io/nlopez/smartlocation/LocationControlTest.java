@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
-import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.util.MockLocationProvider;
 import io.nlopez.smartlocation.location.utils.Logger;

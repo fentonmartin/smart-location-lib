@@ -3,8 +3,8 @@ package io.nlopez.smartlocation.geocoding;
 import android.content.Context;
 import android.location.Location;
 
-import io.nlopez.smartlocation.listener.OnGeocodingListener;
-import io.nlopez.smartlocation.listener.OnReverseGeocodingListener;
+import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
+import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.location.utils.Logger;
 
 /**

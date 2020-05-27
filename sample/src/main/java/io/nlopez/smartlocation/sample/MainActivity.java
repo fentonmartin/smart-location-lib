@@ -25,10 +25,10 @@ import java.util.List;
 import io.nlopez.smartlocation.LocationZ;
 import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
-import io.nlopez.smartlocation.listener.OnActivityUpdatedListener;
-import io.nlopez.smartlocation.listener.OnGeofencingTransitionListener;
-import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.listener.OnReverseGeocodingListener;
+import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
+import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
+import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesProvider;
 
 public class MainActivity extends Activity implements OnLocationUpdatedListener, OnActivityUpdatedListener, OnGeofencingTransitionListener {

@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.listener;
+package io.nlopez.smartlocation.location.listener;
 
 import java.util.List;
 
