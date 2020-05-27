@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="io.nlopez.smartlocation">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -12,7 +11,7 @@
 
     <application>
         <service
-            android:name=".activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+            android:name=".provider.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
             android:exported="false" />
         <service
             android:name=".geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"

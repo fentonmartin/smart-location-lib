@@ -6,8 +6,6 @@ import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
-import io.nlopez.smartlocation.common.Store;
-
 /**
  * Created by mrm on 3/1/15.
  */

@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.common;
+package io.nlopez.smartlocation.location;
 
 /**
  * Basic abstraction for key value storage.

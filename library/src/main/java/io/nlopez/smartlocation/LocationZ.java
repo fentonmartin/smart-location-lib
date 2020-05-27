@@ -13,7 +13,6 @@ import java.util.WeakHashMap;
 
 import io.nlopez.smartlocation.activity.ActivityProvider;
 import io.nlopez.smartlocation.activity.config.ActivityParams;
-import io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.geocoding.GeocodingProvider;
 import io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider;
 import io.nlopez.smartlocation.geofencing.GeofencingProvider;
@@ -28,6 +27,7 @@ import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesWithFallbackProvider;
 import io.nlopez.smartlocation.location.utils.LocationState;
+import io.nlopez.smartlocation.provider.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.utils.Logger;
 import io.nlopez.smartlocation.utils.LoggerFactory;
 

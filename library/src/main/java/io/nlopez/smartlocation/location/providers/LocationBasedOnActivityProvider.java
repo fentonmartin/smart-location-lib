@@ -6,12 +6,12 @@ import android.support.annotation.NonNull;
 
 import com.google.android.gms.location.DetectedActivity;
 
+import io.nlopez.smartlocation.activity.config.ActivityParams;
 import io.nlopez.smartlocation.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.activity.config.ActivityParams;
-import io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.config.LocationParams;
+import io.nlopez.smartlocation.provider.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.utils.Logger;
 
 /**

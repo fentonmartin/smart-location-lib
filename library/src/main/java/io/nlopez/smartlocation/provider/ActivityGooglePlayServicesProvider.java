@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.activity.providers;
+package io.nlopez.smartlocation.provider;
 
 import android.app.Activity;
 import android.app.IntentService;
@@ -19,11 +19,11 @@ import com.google.android.gms.location.ActivityRecognition;
 import com.google.android.gms.location.ActivityRecognitionResult;
 import com.google.android.gms.location.DetectedActivity;
 
-import io.nlopez.smartlocation.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.activity.ActivityProvider;
 import io.nlopez.smartlocation.activity.ActivityStore;
 import io.nlopez.smartlocation.activity.config.ActivityParams;
 import io.nlopez.smartlocation.listener.GooglePlayServicesListener;
+import io.nlopez.smartlocation.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.utils.Logger;
 
 /**
