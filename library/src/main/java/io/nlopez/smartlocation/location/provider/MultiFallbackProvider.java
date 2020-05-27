@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.providers;
+package io.nlopez.smartlocation.location.provider;
 
 import android.content.Context;
 import android.location.Location;

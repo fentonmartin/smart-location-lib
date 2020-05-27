@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.providers;
+package io.nlopez.smartlocation.location.provider;
 
 import android.content.Context;
 import android.location.Location;
@@ -11,7 +11,6 @@ import io.nlopez.smartlocation.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.config.LocationParams;
-import io.nlopez.smartlocation.provider.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.utils.Logger;
 
 /**

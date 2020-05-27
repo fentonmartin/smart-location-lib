@@ -25,9 +25,9 @@ import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.config.LocationParams;
-import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesWithFallbackProvider;
+import io.nlopez.smartlocation.location.provider.ActivityGooglePlayServicesProvider;
+import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesWithFallbackProvider;
 import io.nlopez.smartlocation.location.utils.LocationState;
-import io.nlopez.smartlocation.provider.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.utils.Logger;
 import io.nlopez.smartlocation.utils.LoggerFactory;
 

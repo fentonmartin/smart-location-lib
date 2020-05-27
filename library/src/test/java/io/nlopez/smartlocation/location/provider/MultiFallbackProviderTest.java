@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.providers;
+package io.nlopez.smartlocation.location.provider;
 
 import android.content.Context;
 import android.location.Location;
@@ -12,19 +12,18 @@ import java.util.Iterator;
 
 import io.nlopez.smartlocation.CustomTestRunner;
 import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.listener.ServiceConnectionListener;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.utils.Logger;
-import io.nlopez.smartlocation.listener.ServiceConnectionListener;
-
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 import static junit.framework.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Unit tests for the {@link MultiFallbackProvider}

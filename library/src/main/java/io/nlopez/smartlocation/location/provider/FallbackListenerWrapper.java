@@ -1,10 +1,10 @@
-package io.nlopez.smartlocation.location.providers;
+package io.nlopez.smartlocation.location.provider;
 
 import android.support.annotation.NonNull;
 
+import io.nlopez.smartlocation.listener.ServiceConnectionListener;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.ServiceLocationProvider;
-import io.nlopez.smartlocation.listener.ServiceConnectionListener;
 
 /**
  * A decorator for a {@link ServiceConnectionListener} used to execute the {@link

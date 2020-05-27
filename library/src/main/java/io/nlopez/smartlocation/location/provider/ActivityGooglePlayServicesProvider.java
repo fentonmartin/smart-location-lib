@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.provider;
+package io.nlopez.smartlocation.location.provider;
 
 import android.app.Activity;
 import android.app.IntentService;
