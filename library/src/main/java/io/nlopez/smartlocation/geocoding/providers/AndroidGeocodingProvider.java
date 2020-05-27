@@ -19,7 +19,7 @@ import io.nlopez.smartlocation.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.geocoding.GeocodingProvider;
 import io.nlopez.smartlocation.geocoding.utils.LocationAddress;
-import io.nlopez.smartlocation.utils.Logger;
+import io.nlopez.smartlocation.location.utils.Logger;
 
 /**
  * Geocoding provider based on Android's Geocoder class.

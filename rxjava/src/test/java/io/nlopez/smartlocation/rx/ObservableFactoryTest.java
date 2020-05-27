@@ -19,7 +19,7 @@ import io.nlopez.smartlocation.activity.ActivityProvider;
 import io.nlopez.smartlocation.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.config.LocationParams;
-import io.nlopez.smartlocation.utils.Logger;
+import io.nlopez.smartlocation.location.utils.Logger;
 import io.reactivex.observers.TestObserver;
 
 /**

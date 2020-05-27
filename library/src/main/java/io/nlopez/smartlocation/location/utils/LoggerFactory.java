@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.utils;
+package io.nlopez.smartlocation.location.utils;
 
 import android.util.Log;
 

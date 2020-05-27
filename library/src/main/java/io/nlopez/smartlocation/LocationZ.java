@@ -28,8 +28,8 @@ import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.location.provider.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesWithFallbackProvider;
 import io.nlopez.smartlocation.location.utils.LocationState;
-import io.nlopez.smartlocation.utils.Logger;
-import io.nlopez.smartlocation.utils.LoggerFactory;
+import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.utils.LoggerFactory;
 
 /**
  * Managing class for SmartLocation library.

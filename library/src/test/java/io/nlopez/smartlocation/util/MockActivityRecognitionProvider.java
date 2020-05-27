@@ -7,7 +7,7 @@ import com.google.android.gms.location.DetectedActivity;
 import io.nlopez.smartlocation.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.activity.ActivityProvider;
 import io.nlopez.smartlocation.activity.config.ActivityParams;
-import io.nlopez.smartlocation.utils.Logger;
+import io.nlopez.smartlocation.location.utils.Logger;
 
 /**
  * Created by nacho on 1/9/15.

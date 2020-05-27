@@ -11,7 +11,7 @@ import org.robolectric.annotation.Config;
 import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.util.MockLocationProvider;
-import io.nlopez.smartlocation.utils.Logger;
+import io.nlopez.smartlocation.location.utils.Logger;
 
 import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Matchers.eq;

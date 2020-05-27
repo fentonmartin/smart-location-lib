@@ -28,7 +28,7 @@ import io.nlopez.smartlocation.listener.ServiceConnectionListener;
 import io.nlopez.smartlocation.location.LocationStore;
 import io.nlopez.smartlocation.location.ServiceLocationProvider;
 import io.nlopez.smartlocation.location.config.LocationParams;
-import io.nlopez.smartlocation.utils.Logger;
+import io.nlopez.smartlocation.location.utils.Logger;
 
 /**
  * Created by mrm on 20/12/14.
