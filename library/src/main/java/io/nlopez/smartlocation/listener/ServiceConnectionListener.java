@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.utils;
+package io.nlopez.smartlocation.listener;
 
 /**
  * A callback interface to respond to connection events from 3rd party services.

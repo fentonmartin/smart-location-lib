@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation;
+package io.nlopez.smartlocation.listener;
 
 import android.location.Location;
 

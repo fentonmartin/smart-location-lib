@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.ServiceLocationProvider;
-import io.nlopez.smartlocation.utils.ServiceConnectionListener;
+import io.nlopez.smartlocation.listener.ServiceConnectionListener;
 
 /**
  * A decorator for a {@link ServiceConnectionListener} used to execute the {@link

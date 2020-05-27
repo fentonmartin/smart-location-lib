@@ -23,10 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.nlopez.smartlocation.LocationZ;
-import io.nlopez.smartlocation.OnActivityUpdatedListener;
-import io.nlopez.smartlocation.OnGeofencingTransitionListener;
-import io.nlopez.smartlocation.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.OnReverseGeocodingListener;
+import io.nlopez.smartlocation.listener.OnActivityUpdatedListener;
+import io.nlopez.smartlocation.listener.OnGeofencingTransitionListener;
+import io.nlopez.smartlocation.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
 import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesProvider;

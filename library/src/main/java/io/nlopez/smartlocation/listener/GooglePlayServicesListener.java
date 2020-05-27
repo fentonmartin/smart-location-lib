@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.utils;
+package io.nlopez.smartlocation.listener;
 
 /**
  * Created by mrm on 14/2/15.

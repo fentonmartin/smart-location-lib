@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation;
+package io.nlopez.smartlocation.listener;
 
 import com.google.android.gms.location.DetectedActivity;
 

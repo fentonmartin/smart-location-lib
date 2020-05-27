@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation;
+package io.nlopez.smartlocation.listener;
 
 import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
 
