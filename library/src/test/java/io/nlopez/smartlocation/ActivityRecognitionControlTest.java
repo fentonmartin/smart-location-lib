@@ -36,19 +36,19 @@ public class ActivityRecognitionControlTest {
     @Test
     public void test_activity_recognition_control_init() {
         Context context = RuntimeEnvironment.application.getApplicationContext();
-        SmartLocation smartLocation = new SmartLocation.Builder(context).preInitialize(false).build();
-        SmartLocation.ActivityRecognitionControl activityRecognitionControl = smartLocation.activity(mockProvider);
+        LocationZ locationZ = new LocationZ.Builder(context).preInitialize(false).build();
+        LocationZ.ActivityRecognitionControl activityRecognitionControl = locationZ.activity(mockProvider);
 
         verifyZeroInteractions(mockProvider);
 
-        smartLocation = new SmartLocation.Builder(context).build();
-        activityRecognitionControl = smartLocation.activity(mockProvider);
+        locationZ = new LocationZ.Builder(context).build();
+        activityRecognitionControl = locationZ.activity(mockProvider);
         verify(mockProvider).init(eq(context), any(Logger.class));
     }
 
     @Test
     public void test_activity_recognition_control_start_defaults() {
-        SmartLocation.ActivityRecognitionControl activityRecognitionControl = createActivityRecognitionControl();
+        LocationZ.ActivityRecognitionControl activityRecognitionControl = createActivityRecognitionControl();
 
         activityRecognitionControl.start(activityUpdatedListener);
         verify(mockProvider).start(activityUpdatedListener, DEFAULT_PARAMS);
@@ -56,7 +56,7 @@ public class ActivityRecognitionControlTest {
 
     @Test
     public void test_activity_recognition_get_last_location() {
-        SmartLocation.ActivityRecognitionControl activityRecognitionControl = createActivityRecognitionControl();
+        LocationZ.ActivityRecognitionControl activityRecognitionControl = createActivityRecognitionControl();
         activityRecognitionControl.getLastActivity();
 
         verify(mockProvider).getLastActivity();
@@ -64,16 +64,16 @@ public class ActivityRecognitionControlTest {
 
     @Test
     public void test_activity_recognition_stop() {
-        SmartLocation.ActivityRecognitionControl activityRecognitionControl = createActivityRecognitionControl();
+        LocationZ.ActivityRecognitionControl activityRecognitionControl = createActivityRecognitionControl();
         activityRecognitionControl.stop();
 
         verify(mockProvider).stop();
     }
 
-    private SmartLocation.ActivityRecognitionControl createActivityRecognitionControl() {
+    private LocationZ.ActivityRecognitionControl createActivityRecognitionControl() {
         Context context = RuntimeEnvironment.application.getApplicationContext();
-        SmartLocation smartLocation = new SmartLocation.Builder(context).preInitialize(false).build();
-        SmartLocation.ActivityRecognitionControl activityRecognitionControl = smartLocation.activity(mockProvider);
+        LocationZ locationZ = new LocationZ.Builder(context).preInitialize(false).build();
+        LocationZ.ActivityRecognitionControl activityRecognitionControl = locationZ.activity(mockProvider);
         return activityRecognitionControl;
     }
 

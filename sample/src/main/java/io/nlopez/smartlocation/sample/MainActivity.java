@@ -22,11 +22,11 @@ import com.google.android.gms.location.Geofence;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.nlopez.smartlocation.LocationZ;
 import io.nlopez.smartlocation.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.OnReverseGeocodingListener;
-import io.nlopez.smartlocation.SmartLocation;
 import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
 import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesProvider;
@@ -87,7 +87,7 @@ public class MainActivity extends Activity implements OnLocationUpdatedListener,
     }
 
     private void showLast() {
-        Location lastLocation = SmartLocation.with(this).location().getLastLocation();
+        Location lastLocation = LocationZ.with(this).location().getLastLocation();
         if (lastLocation != null) {
             locationText.setText(
                     String.format("[From Cache] Latitude %.6f, Longitude %.6f",
@@ -96,7 +96,7 @@ public class MainActivity extends Activity implements OnLocationUpdatedListener,
             );
         }
 
-        DetectedActivity detectedActivity = SmartLocation.with(this).activity().getLastActivity();
+        DetectedActivity detectedActivity = LocationZ.with(this).activity().getLastActivity();
         if (detectedActivity != null) {
             activityText.setText(
                     String.format("[From Cache] Activity %s with %d%% confidence",
@@ -119,24 +119,24 @@ public class MainActivity extends Activity implements OnLocationUpdatedListener,
         provider = new LocationGooglePlayServicesProvider();
         provider.setCheckLocationSettings(true);
 
-        SmartLocation smartLocation = new SmartLocation.Builder(this).logging(true).build();
+        LocationZ locationZ = new LocationZ.Builder(this).logging(true).build();
 
-        smartLocation.location(provider).start(this);
-        smartLocation.activity().start(this);
+        locationZ.location(provider).start(this);
+        locationZ.activity().start(this);
 
         // Create some geofences
         GeofenceModel mestalla = new GeofenceModel.Builder("1").setTransition(Geofence.GEOFENCE_TRANSITION_ENTER).setLatitude(39.47453120000001).setLongitude(-0.358065799999963).setRadius(500).build();
-        smartLocation.geofencing().add(mestalla).start(this);
+        locationZ.geofencing().add(mestalla).start(this);
     }
 
     private void stopLocation() {
-        SmartLocation.with(this).location().stop();
+        LocationZ.with(this).location().stop();
         locationText.setText("Location stopped!");
 
-        SmartLocation.with(this).activity().stop();
+        LocationZ.with(this).activity().stop();
         activityText.setText("Activity Recognition stopped!");
 
-        SmartLocation.with(this).geofencing().stop();
+        LocationZ.with(this).geofencing().stop();
         geofenceText.setText("Geofencing stopped!");
     }
 
@@ -148,7 +148,7 @@ public class MainActivity extends Activity implements OnLocationUpdatedListener,
             locationText.setText(text);
 
             // We are going to get the address for the current position
-            SmartLocation.with(this).geocoding().reverse(location, new OnReverseGeocodingListener() {
+            LocationZ.with(this).geocoding().reverse(location, new OnReverseGeocodingListener() {
                 @Override
                 public void onAddressResolved(Location original, List<Address> results) {
                     if (results.size() > 0) {

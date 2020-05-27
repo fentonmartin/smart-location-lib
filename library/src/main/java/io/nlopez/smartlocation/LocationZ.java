@@ -29,7 +29,7 @@ import io.nlopez.smartlocation.utils.LoggerFactory;
 /**
  * Managing class for SmartLocation library.
  */
-public class SmartLocation {
+public class LocationZ {
 
     private Context context;
     private Logger logger;
@@ -42,13 +42,13 @@ public class SmartLocation {
      * @param logger        logger interface
      * @param preInitialize TRUE (default) if we want to instantiate directly the default providers. FALSE if we want to initialize them ourselves.
      */
-    private SmartLocation(Context context, Logger logger, boolean preInitialize) {
+    private LocationZ(Context context, Logger logger, boolean preInitialize) {
         this.context = context;
         this.logger = logger;
         this.preInitialize = preInitialize;
     }
 
-    public static SmartLocation with(Context context) {
+    public static LocationZ with(Context context) {
         return new Builder(context).build();
     }
 
@@ -144,8 +144,8 @@ public class SmartLocation {
             return this;
         }
 
-        public SmartLocation build() {
-            return new SmartLocation(context, LoggerFactory.buildLogger(loggingEnabled), preInitialize);
+        public LocationZ build() {
+            return new LocationZ(context, LoggerFactory.buildLogger(loggingEnabled), preInitialize);
         }
 
     }
@@ -154,23 +154,23 @@ public class SmartLocation {
 
         private static final Map<Context, LocationProvider> MAPPING = new WeakHashMap<>();
 
-        private final SmartLocation smartLocation;
+        private final LocationZ locationZ;
         private LocationParams params;
         private LocationProvider provider;
         private boolean oneFix;
 
-        public LocationControl(@NonNull SmartLocation smartLocation, @NonNull LocationProvider locationProvider) {
-            this.smartLocation = smartLocation;
+        public LocationControl(@NonNull LocationZ locationZ, @NonNull LocationProvider locationProvider) {
+            this.locationZ = locationZ;
             params = LocationParams.BEST_EFFORT;
             oneFix = false;
 
-            if (!MAPPING.containsKey(smartLocation.context)) {
-                MAPPING.put(smartLocation.context, locationProvider);
+            if (!MAPPING.containsKey(locationZ.context)) {
+                MAPPING.put(locationZ.context, locationProvider);
             }
-            provider = MAPPING.get(smartLocation.context);
+            provider = MAPPING.get(locationZ.context);
 
-            if (smartLocation.preInitialize) {
-                provider.init(smartLocation.context, smartLocation.logger);
+            if (locationZ.preInitialize) {
+                provider.init(locationZ.context, locationZ.logger);
             }
         }
 
@@ -190,7 +190,7 @@ public class SmartLocation {
         }
 
         public LocationState state() {
-            return LocationState.with(smartLocation.context);
+            return LocationState.with(locationZ.context);
         }
 
         @Nullable
@@ -218,21 +218,21 @@ public class SmartLocation {
 
         private static final Map<Context, GeocodingProvider> MAPPING = new WeakHashMap<>();
 
-        private final SmartLocation smartLocation;
+        private final LocationZ locationZ;
         private GeocodingProvider provider;
         private boolean directAdded = false;
         private boolean reverseAdded = false;
 
-        public GeocodingControl(@NonNull SmartLocation smartLocation, @NonNull GeocodingProvider geocodingProvider) {
-            this.smartLocation = smartLocation;
+        public GeocodingControl(@NonNull LocationZ locationZ, @NonNull GeocodingProvider geocodingProvider) {
+            this.locationZ = locationZ;
 
-            if (!MAPPING.containsKey(smartLocation.context)) {
-                MAPPING.put(smartLocation.context, geocodingProvider);
+            if (!MAPPING.containsKey(locationZ.context)) {
+                MAPPING.put(locationZ.context, geocodingProvider);
             }
-            provider = MAPPING.get(smartLocation.context);
+            provider = MAPPING.get(locationZ.context);
 
-            if (smartLocation.preInitialize) {
-                provider.init(smartLocation.context, smartLocation.logger);
+            if (locationZ.preInitialize) {
+                provider.init(locationZ.context, locationZ.logger);
             }
         }
 
@@ -293,10 +293,10 @@ public class SmartLocation {
                 throw new RuntimeException("A provider must be initialized");
             }
             if (directAdded && geocodingListener == null) {
-                smartLocation.logger.w("Some places were added for geocoding but the listener was not specified!");
+                locationZ.logger.w("Some places were added for geocoding but the listener was not specified!");
             }
             if (reverseAdded && reverseGeocodingListener == null) {
-                smartLocation.logger.w("Some places were added for reverse geocoding but the listener was not specified!");
+                locationZ.logger.w("Some places were added for reverse geocoding but the listener was not specified!");
             }
 
             provider.start(geocodingListener, reverseGeocodingListener);
@@ -314,21 +314,21 @@ public class SmartLocation {
     public static class ActivityRecognitionControl {
         private static final Map<Context, ActivityProvider> MAPPING = new WeakHashMap<>();
 
-        private final SmartLocation smartLocation;
+        private final LocationZ locationZ;
         private ActivityParams params;
         private ActivityProvider provider;
 
-        public ActivityRecognitionControl(@NonNull SmartLocation smartLocation, @NonNull ActivityProvider activityProvider) {
-            this.smartLocation = smartLocation;
+        public ActivityRecognitionControl(@NonNull LocationZ locationZ, @NonNull ActivityProvider activityProvider) {
+            this.locationZ = locationZ;
             params = ActivityParams.NORMAL;
 
-            if (!MAPPING.containsKey(smartLocation.context)) {
-                MAPPING.put(smartLocation.context, activityProvider);
+            if (!MAPPING.containsKey(locationZ.context)) {
+                MAPPING.put(locationZ.context, activityProvider);
             }
-            provider = MAPPING.get(smartLocation.context);
+            provider = MAPPING.get(locationZ.context);
 
-            if (smartLocation.preInitialize) {
-                provider.init(smartLocation.context, smartLocation.logger);
+            if (locationZ.preInitialize) {
+                provider.init(locationZ.context, locationZ.logger);
             }
         }
 
@@ -362,19 +362,19 @@ public class SmartLocation {
     public static class GeofencingControl {
         private static final Map<Context, GeofencingProvider> MAPPING = new WeakHashMap<>();
 
-        private final SmartLocation smartLocation;
+        private final LocationZ locationZ;
         private GeofencingProvider provider;
 
-        public GeofencingControl(@NonNull SmartLocation smartLocation, @NonNull GeofencingProvider geofencingProvider) {
-            this.smartLocation = smartLocation;
+        public GeofencingControl(@NonNull LocationZ locationZ, @NonNull GeofencingProvider geofencingProvider) {
+            this.locationZ = locationZ;
 
-            if (!MAPPING.containsKey(smartLocation.context)) {
-                MAPPING.put(smartLocation.context, geofencingProvider);
+            if (!MAPPING.containsKey(locationZ.context)) {
+                MAPPING.put(locationZ.context, geofencingProvider);
             }
-            provider = MAPPING.get(smartLocation.context);
+            provider = MAPPING.get(locationZ.context);
 
-            if (smartLocation.preInitialize) {
-                provider.init(smartLocation.context, smartLocation.logger);
+            if (locationZ.preInitialize) {
+                provider.init(locationZ.context, locationZ.logger);
             }
         }
 

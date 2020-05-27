@@ -38,18 +38,18 @@ public class LocationControlTest {
     @Test
     public void test_location_control_init() {
         Context context = RuntimeEnvironment.application.getApplicationContext();
-        SmartLocation smartLocation = new SmartLocation.Builder(context).logging(false).preInitialize(false).build();
-        SmartLocation.LocationControl locationControl = smartLocation.location(mockProvider);
+        LocationZ locationZ = new LocationZ.Builder(context).logging(false).preInitialize(false).build();
+        LocationZ.LocationControl locationControl = locationZ.location(mockProvider);
         verifyZeroInteractions(mockProvider);
 
-        smartLocation = new SmartLocation.Builder(context).logging(false).build();
-        locationControl = smartLocation.location(mockProvider);
+        locationZ = new LocationZ.Builder(context).logging(false).build();
+        locationControl = locationZ.location(mockProvider);
         verify(mockProvider).init(eq(context), any(Logger.class));
     }
 
     @Test
     public void test_location_control_start_defaults() {
-        SmartLocation.LocationControl locationControl = createLocationControl();
+        LocationZ.LocationControl locationControl = createLocationControl();
 
         locationControl.start(locationUpdatedListener);
         verify(mockProvider).start(locationUpdatedListener, DEFAULT_PARAMS, DEFAULT_SINGLE_UPDATE);
@@ -57,7 +57,7 @@ public class LocationControlTest {
 
     @Test
     public void test_location_control_start_only_once() {
-        SmartLocation.LocationControl locationControl = createLocationControl();
+        LocationZ.LocationControl locationControl = createLocationControl();
         locationControl.oneFix();
 
         locationControl.start(locationUpdatedListener);
@@ -66,7 +66,7 @@ public class LocationControlTest {
 
     @Test
     public void test_location_control_start_continuous() {
-        SmartLocation.LocationControl locationControl = createLocationControl();
+        LocationZ.LocationControl locationControl = createLocationControl();
         locationControl.oneFix();
         locationControl.continuous();
         locationControl.start(locationUpdatedListener);
@@ -75,7 +75,7 @@ public class LocationControlTest {
 
     @Test
     public void test_location_control_start_navigation() {
-        SmartLocation.LocationControl locationControl = createLocationControl();
+        LocationZ.LocationControl locationControl = createLocationControl();
         locationControl.config(LocationParams.NAVIGATION);
 
         locationControl.start(locationUpdatedListener);
@@ -84,7 +84,7 @@ public class LocationControlTest {
 
     @Test
     public void test_location_control_get_last_location() {
-        SmartLocation.LocationControl locationControl = createLocationControl();
+        LocationZ.LocationControl locationControl = createLocationControl();
         locationControl.getLastLocation();
 
         verify(mockProvider).getLastLocation();
@@ -92,16 +92,16 @@ public class LocationControlTest {
 
     @Test
     public void test_location_control_stop() {
-        SmartLocation.LocationControl locationControl = createLocationControl();
+        LocationZ.LocationControl locationControl = createLocationControl();
         locationControl.stop();
 
         verify(mockProvider).stop();
     }
 
-    private SmartLocation.LocationControl createLocationControl() {
+    private LocationZ.LocationControl createLocationControl() {
         Context context = RuntimeEnvironment.application.getApplicationContext();
-        SmartLocation smartLocation = new SmartLocation.Builder(context).logging(false).preInitialize(false).build();
-        SmartLocation.LocationControl locationControl = smartLocation.location(mockProvider);
+        LocationZ locationZ = new LocationZ.Builder(context).logging(false).preInitialize(false).build();
+        LocationZ.LocationControl locationControl = locationZ.location(mockProvider);
         return locationControl;
     }
 

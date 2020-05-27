@@ -12,9 +12,9 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
+import io.nlopez.smartlocation.LocationZ;
 import io.nlopez.smartlocation.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.SmartLocation;
 import io.nlopez.smartlocation.activity.ActivityProvider;
 import io.nlopez.smartlocation.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.LocationProvider;
@@ -41,7 +41,7 @@ public class ObservableFactoryTest {
     @Test
     public void test_observable_activity() {
         TestObserver<DetectedActivity> testObserver = ObservableFactory.from(
-                SmartLocation.with(RuntimeEnvironment.application.getApplicationContext())
+                LocationZ.with(RuntimeEnvironment.application.getApplicationContext())
                         .activity(mActivityProvider)
         ).test();
 
@@ -54,7 +54,7 @@ public class ObservableFactoryTest {
     @Test
     public void test_observable_location() {
         TestObserver<Location> testObserver = ObservableFactory.from(
-                SmartLocation.with(RuntimeEnvironment.application.getApplicationContext())
+                LocationZ.with(RuntimeEnvironment.application.getApplicationContext())
                         .location(mLocationProvider)
         ).test();
 

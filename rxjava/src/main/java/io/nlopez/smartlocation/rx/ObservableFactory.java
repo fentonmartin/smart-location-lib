@@ -8,12 +8,12 @@ import com.google.android.gms.location.DetectedActivity;
 
 import java.util.List;
 
+import io.nlopez.smartlocation.LocationZ;
 import io.nlopez.smartlocation.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.OnGeocodingListener;
 import io.nlopez.smartlocation.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.OnReverseGeocodingListener;
-import io.nlopez.smartlocation.SmartLocation;
 import io.nlopez.smartlocation.geocoding.utils.LocationAddress;
 import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
 import io.reactivex.Observable;
@@ -41,7 +41,7 @@ public class ObservableFactory {
      * @param locationControl instance with the needed configuration
      * @return Observable for Location changes
      */
-    public static Observable<Location> from(final SmartLocation.LocationControl locationControl) {
+    public static Observable<Location> from(final LocationZ.LocationControl locationControl) {
         return Observable.create(new ObservableOnSubscribe<Location>() {
             @Override
             public void subscribe(final ObservableEmitter<Location> emitter) throws Exception {
@@ -66,7 +66,7 @@ public class ObservableFactory {
      * @param activityControl instance with the needed configuration
      * @return Observable for Activity changes
      */
-    public static Observable<DetectedActivity> from(final SmartLocation.ActivityRecognitionControl activityControl) {
+    public static Observable<DetectedActivity> from(final LocationZ.ActivityRecognitionControl activityControl) {
         return Observable.create(new ObservableOnSubscribe<DetectedActivity>() {
             @Override
             public void subscribe(final ObservableEmitter<DetectedActivity> emitter) throws Exception {
@@ -91,7 +91,7 @@ public class ObservableFactory {
      * @param geofencingControl instance with the needed configuration
      * @return Observable for Geofence transitions (enter, exit, dwell)
      */
-    public static Observable<TransitionGeofence> from(final SmartLocation.GeofencingControl geofencingControl) {
+    public static Observable<TransitionGeofence> from(final LocationZ.GeofencingControl geofencingControl) {
         return Observable.create(new ObservableOnSubscribe<TransitionGeofence>() {
             @Override
             public void subscribe(final ObservableEmitter<TransitionGeofence> emitter) {
@@ -122,7 +122,7 @@ public class ObservableFactory {
         return SingleSubject.create(new SingleOnSubscribe<List<LocationAddress>>() {
             @Override
             public void subscribe(final SingleEmitter<List<LocationAddress>> emitter) {
-                SmartLocation.with(context).geocoding().add(address, maxResults).start(new OnGeocodingListener() {
+                LocationZ.with(context).geocoding().add(address, maxResults).start(new OnGeocodingListener() {
                     @Override
                     public void onLocationResolved(String name, List<LocationAddress> results) {
                         emitter.onSuccess(results);
@@ -145,7 +145,7 @@ public class ObservableFactory {
         return SingleSubject.create(new SingleOnSubscribe<List<Address>>() {
             @Override
             public void subscribe(final SingleEmitter<List<Address>> emitter) {
-                SmartLocation.with(context).geocoding().add(location, maxResults).start(new OnReverseGeocodingListener() {
+                LocationZ.with(context).geocoding().add(location, maxResults).start(new OnReverseGeocodingListener() {
                     @Override
                     public void onAddressResolved(Location original, List<Address> results) {
                         emitter.onSuccess(results);
