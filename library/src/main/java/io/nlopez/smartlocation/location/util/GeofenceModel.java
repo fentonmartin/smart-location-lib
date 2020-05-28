@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.geofencing.model;
+package io.nlopez.smartlocation.location.util;
 
 import com.google.android.gms.location.Geofence;
 
