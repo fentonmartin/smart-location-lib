@@ -13,7 +13,7 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.CustomTestRunner;
-import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
+import io.nlopez.smartlocation.location.util.GeofenceModel;
 
 /**
  * Created by nacho on 1/9/15.

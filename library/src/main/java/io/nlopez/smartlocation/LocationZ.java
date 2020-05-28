@@ -11,11 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
+import io.nlopez.smartlocation.location.geocoding.AndroidGeocodingProvider;
 import io.nlopez.smartlocation.location.geocoding.GeocodingProvider;
-import io.nlopez.smartlocation.location.geocoding.providers.AndroidGeocodingProvider;
+import io.nlopez.smartlocation.location.geofencing.GeofencingGooglePlayServicesProvider;
 import io.nlopez.smartlocation.location.geofencing.GeofencingProvider;
-import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
-import io.nlopez.smartlocation.location.geofencing.providers.GeofencingGooglePlayServicesProvider;
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
@@ -26,6 +25,7 @@ import io.nlopez.smartlocation.location.provider.ActivityGooglePlayServicesProvi
 import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesWithFallbackListener;
 import io.nlopez.smartlocation.location.util.ActivityParams;
 import io.nlopez.smartlocation.location.util.ActivityProvider;
+import io.nlopez.smartlocation.location.util.GeofenceModel;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.LocationState;
 import io.nlopez.smartlocation.location.util.Logger;

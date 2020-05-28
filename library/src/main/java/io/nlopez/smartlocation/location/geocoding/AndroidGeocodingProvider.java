@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.geocoding.providers;
+package io.nlopez.smartlocation.location.geocoding;
 
 import android.app.IntentService;
 import android.content.BroadcastReceiver;
@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import io.nlopez.smartlocation.location.geocoding.GeocodingProvider;
 import io.nlopez.smartlocation.location.geocoding.utils.LocationAddress;
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;

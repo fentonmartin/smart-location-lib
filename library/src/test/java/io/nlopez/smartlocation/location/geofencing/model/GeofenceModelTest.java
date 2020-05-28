@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.CustomTestRunner;
+import io.nlopez.smartlocation.location.util.GeofenceModel;
 
 /**
  * Created by mrm on 10/1/15.

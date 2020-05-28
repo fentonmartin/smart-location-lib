@@ -4,8 +4,8 @@ import android.content.Context;
 
 import java.util.List;
 
-import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
+import io.nlopez.smartlocation.location.util.GeofenceModel;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
