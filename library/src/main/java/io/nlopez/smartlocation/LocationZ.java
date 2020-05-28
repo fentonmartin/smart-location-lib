@@ -22,7 +22,7 @@ import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
-import io.nlopez.smartlocation.location.provider.ActivityProvider;
+import io.nlopez.smartlocation.location.provider.ActivityListener;
 import io.nlopez.smartlocation.location.provider.LocationFallbackProvider;
 import io.nlopez.smartlocation.location.util.ActivityParams;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
@@ -87,14 +87,14 @@ public class LocationZ {
      * @return request handler for activity recognition
      */
     public ActivityRecognitionControl activity() {
-        return activity(new ActivityProvider());
+        return activity(new ActivityListener());
     }
 
     /**
      * @param provider activity provider we want to use
      * @return request handler for activity recognition
      */
-    public ActivityRecognitionControl activity(io.nlopez.smartlocation.location.util.ActivityProvider provider) {
+    public ActivityRecognitionControl activity(ActivityListener provider) {
         return new ActivityRecognitionControl(this, provider);
     }
 
@@ -316,13 +316,13 @@ public class LocationZ {
 
     public static class ActivityRecognitionControl {
 
-        private static final Map<Context, io.nlopez.smartlocation.location.util.ActivityProvider> MAPPING = new WeakHashMap<>();
+        private static final Map<Context, ActivityListener> MAPPING = new WeakHashMap<>();
 
         private final LocationZ locationZ;
         private ActivityParams params;
-        private io.nlopez.smartlocation.location.util.ActivityProvider provider;
+        private ActivityListener provider;
 
-        public ActivityRecognitionControl(@NonNull LocationZ locationZ, @NonNull io.nlopez.smartlocation.location.util.ActivityProvider provider) {
+        public ActivityRecognitionControl(@NonNull LocationZ locationZ, @NonNull ActivityListener provider) {
             this.locationZ = locationZ;
             params = ActivityParams.NORMAL;
 

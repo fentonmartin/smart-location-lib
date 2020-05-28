@@ -11,7 +11,7 @@ import org.robolectric.annotation.Config;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.util.ActivityParams;
 import io.nlopez.smartlocation.location.util.Logger;
-import io.nlopez.smartlocation.util.MockActivityRecognitionProvider;
+import io.nlopez.smartlocation.util.MockActivityRecognitionListener;
 
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.any;
@@ -25,12 +25,12 @@ public class ActivityRecognitionControlTest {
 
     private static final ActivityParams DEFAULT_PARAMS = ActivityParams.NORMAL;
 
-    private MockActivityRecognitionProvider mockProvider;
+    private MockActivityRecognitionListener mockProvider;
     private OnActivityUpdatedListener activityUpdatedListener;
 
     @Before
     public void setup() {
-        mockProvider = mock(MockActivityRecognitionProvider.class);
+        mockProvider = mock(MockActivityRecognitionListener.class);
         activityUpdatedListener = mock(OnActivityUpdatedListener.class);
     }
 

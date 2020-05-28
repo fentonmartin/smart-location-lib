@@ -29,11 +29,11 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by mrm on 3/1/15.
  */
-public class ActivityProvider implements io.nlopez.smartlocation.location.util.ActivityProvider, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
+public class ActivityListener implements io.nlopez.smartlocation.location.listener.ActivityListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
     public static final int RESULT_CODE = 10002;
 
     private static final String GMS_ID = "GMS";
-    private static final String BROADCAST_INTENT_ACTION = ActivityProvider.class.getCanonicalName() + ".DETECTED_ACTIVITY";
+    private static final String BROADCAST_INTENT_ACTION = ActivityListener.class.getCanonicalName() + ".DETECTED_ACTIVITY";
     private static final String DETECTED_ACTIVITY_EXTRA_ID = "activity";
 
     private GoogleApiClient client;
@@ -48,11 +48,11 @@ public class ActivityProvider implements io.nlopez.smartlocation.location.util.A
     private final GooglePlayServicesListener googlePlayServicesListener;
 
 
-    public ActivityProvider() {
+    public ActivityListener() {
         this(null);
     }
 
-    public ActivityProvider(GooglePlayServicesListener playServicesListener) {
+    public ActivityListener(GooglePlayServicesListener playServicesListener) {
         googlePlayServicesListener = playServicesListener;
     }
 

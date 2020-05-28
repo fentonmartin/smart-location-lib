@@ -13,11 +13,11 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.LocationZ;
+import io.nlopez.smartlocation.location.listener.ActivityListener;
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.util.ActivityParams;
-import io.nlopez.smartlocation.location.util.ActivityProvider;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
 import io.reactivex.observers.TestObserver;
@@ -29,12 +29,12 @@ import io.reactivex.observers.TestObserver;
 @Config(manifest = Config.NONE)
 public class ObservableFactoryTest {
 
-    private TestActivityProvider mActivityProvider;
+    private TestActivityListener mActivityProvider;
     private TestLocationListener mLocationProvider;
 
     @Before
     public void setup() {
-        mActivityProvider = new TestActivityProvider();
+        mActivityProvider = new TestActivityListener();
         mLocationProvider = new TestLocationListener();
     }
 
@@ -64,7 +64,7 @@ public class ObservableFactoryTest {
         testObserver.assertValue(location);
     }
 
-    class TestActivityProvider implements ActivityProvider {
+    class TestActivityListener implements ActivityListener {
 
         private OnActivityUpdatedListener mListener;
 

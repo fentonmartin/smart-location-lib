@@ -4,15 +4,15 @@ import android.content.Context;
 
 import com.google.android.gms.location.DetectedActivity;
 
+import io.nlopez.smartlocation.location.listener.ActivityListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.util.ActivityParams;
-import io.nlopez.smartlocation.location.util.ActivityProvider;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by nacho on 1/9/15.
  */
-public class MockActivityRecognitionProvider implements ActivityProvider {
+public class MockActivityRecognitionListener implements ActivityListener {
 
     private OnActivityUpdatedListener listener;
 
