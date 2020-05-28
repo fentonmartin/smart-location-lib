@@ -121,11 +121,11 @@ public class LocationZ {
     }
 
     /**
-     * @param geocodingProvider geocoding provider we want to use
+     * @param geocodingListener geocoding provider we want to use
      * @return request handler for geocoding operations
      */
-    public GeocodingControl geocoding(GeocodingListener geocodingProvider) {
-        return new GeocodingControl(this, geocodingProvider);
+    public GeocodingControl geocoding(GeocodingListener geocodingListener) {
+        return new GeocodingControl(this, geocodingListener);
     }
 
     public static class Builder {
