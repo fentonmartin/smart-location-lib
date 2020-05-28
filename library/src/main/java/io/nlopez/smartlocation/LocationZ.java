@@ -65,11 +65,11 @@ public class LocationZ {
     }
 
     /**
-     * @param provider location provider we want to use
+     * @param listener location provider we want to use
      * @return request handler for location operations
      */
-    public LocationControl location(LocationListener provider) {
-        return new LocationControl(this, provider);
+    public LocationControl location(LocationListener listener) {
+        return new LocationControl(this, listener);
     }
 
     /**
@@ -91,11 +91,11 @@ public class LocationZ {
     }
 
     /**
-     * @param activityProvider activity provider we want to use
+     * @param provider activity provider we want to use
      * @return request handler for activity recognition
      */
-    public ActivityRecognitionControl activity(ActivityProvider activityProvider) {
-        return new ActivityRecognitionControl(this, activityProvider);
+    public ActivityRecognitionControl activity(ActivityProvider provider) {
+        return new ActivityRecognitionControl(this, provider);
     }
 
     /**
@@ -106,11 +106,11 @@ public class LocationZ {
     }
 
     /**
-     * @param geofencingListener geofencing provider we want to use
+     * @param listener geofencing provider we want to use
      * @return request handler for geofencing operations
      */
-    public GeofencingControl geofencing(GeofencingListener geofencingListener) {
-        return new GeofencingControl(this, geofencingListener);
+    public GeofencingControl geofencing(GeofencingListener listener) {
+        return new GeofencingControl(this, listener);
     }
 
     /**
@@ -121,11 +121,11 @@ public class LocationZ {
     }
 
     /**
-     * @param geocodingListener geocoding provider we want to use
+     * @param listener geocoding provider we want to use
      * @return request handler for geocoding operations
      */
-    public GeocodingControl geocoding(GeocodingListener geocodingListener) {
-        return new GeocodingControl(this, geocodingListener);
+    public GeocodingControl geocoding(GeocodingListener listener) {
+        return new GeocodingControl(this, listener);
     }
 
     public static class Builder {
@@ -164,13 +164,13 @@ public class LocationZ {
         private LocationListener provider;
         private boolean oneFix;
 
-        public LocationControl(@NonNull LocationZ locationZ, @NonNull LocationListener locationListener) {
+        public LocationControl(@NonNull LocationZ locationZ, @NonNull LocationListener listener) {
             this.locationZ = locationZ;
             params = LocationParams.BEST_EFFORT;
             oneFix = false;
 
             if (!MAPPING.containsKey(locationZ.context)) {
-                MAPPING.put(locationZ.context, locationListener);
+                MAPPING.put(locationZ.context, listener);
             }
             provider = MAPPING.get(locationZ.context);
 
@@ -228,11 +228,11 @@ public class LocationZ {
         private boolean directAdded = false;
         private boolean reverseAdded = false;
 
-        public GeocodingControl(@NonNull LocationZ locationZ, @NonNull GeocodingListener geocodingProvider) {
+        public GeocodingControl(@NonNull LocationZ locationZ, @NonNull GeocodingListener listener) {
             this.locationZ = locationZ;
 
             if (!MAPPING.containsKey(locationZ.context)) {
-                MAPPING.put(locationZ.context, geocodingProvider);
+                MAPPING.put(locationZ.context, listener);
             }
             provider = MAPPING.get(locationZ.context);
 
@@ -245,14 +245,14 @@ public class LocationZ {
             return this;
         }
 
-        public void reverse(@NonNull Location location, @NonNull OnReverseGeocodingListener reverseGeocodingListener) {
+        public void reverse(@NonNull Location location, @NonNull OnReverseGeocodingListener listener) {
             add(location);
-            start(reverseGeocodingListener);
+            start(listener);
         }
 
-        public void direct(@NonNull String name, @NonNull OnGeocodingListener geocodingListener) {
+        public void direct(@NonNull String name, @NonNull OnGeocodingListener listener) {
             add(name);
-            start(geocodingListener);
+            start(listener);
         }
 
         public GeocodingControl add(@NonNull Location location) {
@@ -279,12 +279,12 @@ public class LocationZ {
             return this;
         }
 
-        public void start(OnGeocodingListener geocodingListener) {
-            start(geocodingListener, null);
+        public void start(OnGeocodingListener listener) {
+            start(listener, null);
         }
 
-        public void start(OnReverseGeocodingListener reverseGeocodingListener) {
-            start(null, reverseGeocodingListener);
+        public void start(OnReverseGeocodingListener listener) {
+            start(null, listener);
         }
 
         /**
@@ -322,17 +322,17 @@ public class LocationZ {
         private ActivityParams params;
         private ActivityProvider provider;
 
-        public ActivityRecognitionControl(@NonNull LocationZ locationZ, @NonNull ActivityProvider activityProvider) {
+        public ActivityRecognitionControl(@NonNull LocationZ locationZ, @NonNull ActivityProvider provider) {
             this.locationZ = locationZ;
             params = ActivityParams.NORMAL;
 
             if (!MAPPING.containsKey(locationZ.context)) {
-                MAPPING.put(locationZ.context, activityProvider);
+                MAPPING.put(locationZ.context, provider);
             }
-            provider = MAPPING.get(locationZ.context);
+            this.provider = MAPPING.get(locationZ.context);
 
             if (locationZ.preInitialize) {
-                provider.init(locationZ.context, locationZ.logger);
+                this.provider.init(locationZ.context, locationZ.logger);
             }
         }
 
@@ -369,11 +369,11 @@ public class LocationZ {
         private final LocationZ locationZ;
         private GeofencingListener provider;
 
-        public GeofencingControl(@NonNull LocationZ locationZ, @NonNull GeofencingListener geofencingListener) {
+        public GeofencingControl(@NonNull LocationZ locationZ, @NonNull GeofencingListener listener) {
             this.locationZ = locationZ;
 
             if (!MAPPING.containsKey(locationZ.context)) {
-                MAPPING.put(locationZ.context, geofencingListener);
+                MAPPING.put(locationZ.context, listener);
             }
             provider = MAPPING.get(locationZ.context);
 
