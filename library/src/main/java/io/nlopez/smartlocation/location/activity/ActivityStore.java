@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.activity;
+package io.nlopez.smartlocation.location.activity;
 
 import android.content.Context;
 import android.content.SharedPreferences;

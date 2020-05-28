@@ -1,11 +1,11 @@
-package io.nlopez.smartlocation.geofencing;
+package io.nlopez.smartlocation.location.geofencing;
 
 import android.content.Context;
 
 import java.util.List;
 
+import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
-import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.location.utils.Logger;
 
 /**

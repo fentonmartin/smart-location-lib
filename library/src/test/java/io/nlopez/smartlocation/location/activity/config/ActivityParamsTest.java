@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.activity.config;
+package io.nlopez.smartlocation.location.activity.config;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -14,10 +14,10 @@
             android:name=".location.provider.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
             android:exported="false" />
         <service
-            android:name=".geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+            android:name=".location.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
             android:exported="false" />
         <service
-            android:name=".geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+            android:name=".location.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
             android:exported="false" />
     </application>
 </manifest>

@@ -8,10 +8,10 @@ import org.junit.runner.RunWith;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
-import io.nlopez.smartlocation.activity.config.ActivityParams;
+import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
-import io.nlopez.smartlocation.util.MockActivityRecognitionProvider;
 import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.util.MockActivityRecognitionProvider;
 
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.any;

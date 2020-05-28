@@ -1,11 +1,11 @@
-package io.nlopez.smartlocation.activity;
+package io.nlopez.smartlocation.location.activity;
 
 import android.content.Context;
 
 import com.google.android.gms.location.DetectedActivity;
 
+import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
-import io.nlopez.smartlocation.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.utils.Logger;
 
 /**

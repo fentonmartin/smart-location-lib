@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.geofencing.providers;
+package io.nlopez.smartlocation.location.geofencing.providers;
 
 import android.Manifest;
 import android.app.Activity;
@@ -26,12 +26,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
-import io.nlopez.smartlocation.geofencing.GeofencingProvider;
-import io.nlopez.smartlocation.geofencing.GeofencingStore;
-import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
-import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
+import io.nlopez.smartlocation.location.geofencing.GeofencingProvider;
+import io.nlopez.smartlocation.location.geofencing.GeofencingStore;
+import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
+import io.nlopez.smartlocation.location.geofencing.utils.TransitionGeofence;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
+import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.utils.Logger;
 
 /**

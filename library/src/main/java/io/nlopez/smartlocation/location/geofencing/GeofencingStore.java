@@ -1,12 +1,12 @@
-package io.nlopez.smartlocation.geofencing;
+package io.nlopez.smartlocation.location.geofencing;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
-import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.location.Store;
+import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
 
 /**
  * Created by mrm on 3/1/15.

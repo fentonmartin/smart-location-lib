@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.geofencing;
+package io.nlopez.smartlocation.location.geofencing;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,7 +13,7 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.CustomTestRunner;
-import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
+import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
 
 /**
  * Created by nacho on 1/9/15.

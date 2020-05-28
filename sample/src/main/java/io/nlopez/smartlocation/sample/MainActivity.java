@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.nlopez.smartlocation.LocationZ;
-import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
-import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
+import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
+import io.nlopez.smartlocation.location.geofencing.utils.TransitionGeofence;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
