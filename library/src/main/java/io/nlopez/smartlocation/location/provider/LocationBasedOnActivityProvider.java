@@ -8,9 +8,9 @@ import com.google.android.gms.location.DetectedActivity;
 
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.activity.config.ActivityParams;
-import io.nlopez.smartlocation.location.config.LocationParams;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.location.utils.LocationParams;
 import io.nlopez.smartlocation.location.utils.Logger;
 
 /**

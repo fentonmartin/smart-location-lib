@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.CustomTestRunner;
+import io.nlopez.smartlocation.location.utils.LocationAccuracy;
+import io.nlopez.smartlocation.location.utils.LocationParams;
 
 /**
  * Created by mrm on 10/1/15.

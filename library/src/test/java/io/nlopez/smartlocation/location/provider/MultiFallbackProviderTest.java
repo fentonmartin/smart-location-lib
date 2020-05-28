@@ -11,10 +11,10 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import io.nlopez.smartlocation.CustomTestRunner;
+import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
-import io.nlopez.smartlocation.location.LocationProvider;
-import io.nlopez.smartlocation.location.config.LocationParams;
+import io.nlopez.smartlocation.location.utils.LocationParams;
 import io.nlopez.smartlocation.location.utils.Logger;
 
 import static junit.framework.Assert.assertEquals;

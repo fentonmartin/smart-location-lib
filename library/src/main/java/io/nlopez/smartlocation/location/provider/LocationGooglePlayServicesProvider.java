@@ -22,12 +22,12 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 
+import io.nlopez.smartlocation.location.LocationStore;
+import io.nlopez.smartlocation.location.ServiceLocationProvider;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
-import io.nlopez.smartlocation.location.LocationStore;
-import io.nlopez.smartlocation.location.ServiceLocationProvider;
-import io.nlopez.smartlocation.location.config.LocationParams;
+import io.nlopez.smartlocation.location.utils.LocationParams;
 import io.nlopez.smartlocation.location.utils.Logger;
 
 /**
