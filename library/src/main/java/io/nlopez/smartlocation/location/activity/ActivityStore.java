@@ -7,7 +7,7 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.android.gms.location.DetectedActivity;
 
-import io.nlopez.smartlocation.location.Store;
+import io.nlopez.smartlocation.location.util.Store;
 
 /**
  * Stores activities

@@ -12,6 +12,7 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.CustomTestRunner;
+import io.nlopez.smartlocation.location.util.LocationStore;
 
 /**
  * Created by nacho on 1/9/15.
