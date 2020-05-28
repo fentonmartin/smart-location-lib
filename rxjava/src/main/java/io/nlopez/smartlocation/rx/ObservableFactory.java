@@ -9,13 +9,13 @@ import com.google.android.gms.location.DetectedActivity;
 import java.util.List;
 
 import io.nlopez.smartlocation.LocationZ;
-import io.nlopez.smartlocation.location.geocoding.utils.LocationAddress;
 import io.nlopez.smartlocation.location.geofencing.utils.TransitionGeofence;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
+import io.nlopez.smartlocation.location.util.LocationAddress;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;

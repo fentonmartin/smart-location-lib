@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.geocoding.utils;
+package io.nlopez.smartlocation.location.util;
 
 import android.location.Address;
 import android.location.Location;

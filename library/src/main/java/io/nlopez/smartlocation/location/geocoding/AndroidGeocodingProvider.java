@@ -15,9 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import io.nlopez.smartlocation.location.geocoding.utils.LocationAddress;
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
+import io.nlopez.smartlocation.location.util.LocationAddress;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
