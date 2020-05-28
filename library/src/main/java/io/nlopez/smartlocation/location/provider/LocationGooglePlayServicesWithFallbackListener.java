@@ -7,8 +7,8 @@ import android.os.Bundle;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
@@ -16,7 +16,7 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by mrm on 20/12/14.
  */
-public class LocationGooglePlayServicesWithFallbackProvider implements LocationProvider, GooglePlayServicesListener {
+public class LocationGooglePlayServicesWithFallbackListener implements LocationListener, GooglePlayServicesListener {
 
     private Logger logger;
     private OnLocationUpdatedListener listener;
@@ -25,13 +25,13 @@ public class LocationGooglePlayServicesWithFallbackProvider implements LocationP
     private LocationParams params;
     private boolean singleUpdate = false;
 
-    private LocationProvider provider;
+    private LocationListener provider;
 
-    public LocationGooglePlayServicesWithFallbackProvider(Context context) {
+    public LocationGooglePlayServicesWithFallbackListener(Context context) {
         if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS) {
-            provider = new LocationGooglePlayServicesProvider(this);
+            provider = new LocationGooglePlayServicesListener(this);
         } else {
-            provider = new LocationManagerProvider();
+            provider = new LocationManagerListener();
         }
     }
 
@@ -82,7 +82,7 @@ public class LocationGooglePlayServicesWithFallbackProvider implements LocationP
 
     private void fallbackToLocationManager() {
         logger.d("FusedLocationProvider not working, falling back and using LocationManager");
-        provider = new LocationManagerProvider();
+        provider = new LocationManagerListener();
         provider.init(context, logger);
         if (shouldStart) {
             provider.start(listener, params, singleUpdate);

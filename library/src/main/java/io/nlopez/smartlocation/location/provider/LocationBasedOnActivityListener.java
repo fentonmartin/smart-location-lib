@@ -6,8 +6,8 @@ import android.support.annotation.NonNull;
 
 import com.google.android.gms.location.DetectedActivity;
 
-import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.activity.config.ActivityParams;
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
@@ -16,16 +16,16 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by mrm on 20/12/14.
  */
-public class LocationBasedOnActivityProvider implements LocationProvider, OnActivityUpdatedListener {
+public class LocationBasedOnActivityListener implements LocationListener, OnActivityUpdatedListener {
     private final ActivityGooglePlayServicesProvider activityProvider;
-    private final LocationGooglePlayServicesProvider locationProvider;
+    private final LocationGooglePlayServicesListener locationProvider;
     private final LocationBasedOnActivityListener locationBasedOnActivityListener;
     private OnLocationUpdatedListener locationUpdatedListener;
     private LocationParams locationParams;
 
-    public LocationBasedOnActivityProvider(@NonNull LocationBasedOnActivityListener locationBasedOnActivityListener) {
+    public LocationBasedOnActivityListener(@NonNull LocationBasedOnActivityListener locationBasedOnActivityListener) {
         activityProvider = new ActivityGooglePlayServicesProvider();
-        locationProvider = new LocationGooglePlayServicesProvider();
+        locationProvider = new LocationGooglePlayServicesListener();
         this.locationBasedOnActivityListener = locationBasedOnActivityListener;
     }
 

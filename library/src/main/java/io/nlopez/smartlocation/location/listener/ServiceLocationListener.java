@@ -1,15 +1,13 @@
-package io.nlopez.smartlocation.location;
-
-import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
+package io.nlopez.smartlocation.location.listener;
 
 /**
- * An extension of the {@link LocationProvider} interface for location providers that utilize 3rd
+ * An extension of the {@link LocationListener} interface for location providers that utilize 3rd
  * party services. Implementations must invoke the appropriate {@link ServiceConnectionListener}
  * events when the connection to the 3rd party service succeeds, fails, or is suspended.
  *
  * @author abkaplan07
  */
-public interface ServiceLocationProvider extends LocationProvider {
+public interface ServiceLocationListener extends LocationListener {
 
     /**
      * Gets the {@link ServiceConnectionListener} callback for this location provider.

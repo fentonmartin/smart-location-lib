@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.activity.ActivityProvider;
 import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.geocoding.GeocodingProvider;
@@ -19,13 +18,14 @@ import io.nlopez.smartlocation.location.geocoding.providers.AndroidGeocodingProv
 import io.nlopez.smartlocation.location.geofencing.GeofencingProvider;
 import io.nlopez.smartlocation.location.geofencing.model.GeofenceModel;
 import io.nlopez.smartlocation.location.geofencing.providers.GeofencingGooglePlayServicesProvider;
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.location.provider.ActivityGooglePlayServicesProvider;
-import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesWithFallbackProvider;
+import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesWithFallbackListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.LocationState;
 import io.nlopez.smartlocation.location.util.Logger;
@@ -61,14 +61,14 @@ public class LocationZ {
      * @return request handler for location operations
      */
     public LocationControl location() {
-        return location(new LocationGooglePlayServicesWithFallbackProvider(context));
+        return location(new LocationGooglePlayServicesWithFallbackListener(context));
     }
 
     /**
      * @param provider location provider we want to use
      * @return request handler for location operations
      */
-    public LocationControl location(LocationProvider provider) {
+    public LocationControl location(LocationListener provider) {
         return new LocationControl(this, provider);
     }
 
@@ -157,20 +157,20 @@ public class LocationZ {
 
     public static class LocationControl {
 
-        private static final Map<Context, LocationProvider> MAPPING = new WeakHashMap<>();
+        private static final Map<Context, LocationListener> MAPPING = new WeakHashMap<>();
 
         private final LocationZ locationZ;
         private LocationParams params;
-        private LocationProvider provider;
+        private LocationListener provider;
         private boolean oneFix;
 
-        public LocationControl(@NonNull LocationZ locationZ, @NonNull LocationProvider locationProvider) {
+        public LocationControl(@NonNull LocationZ locationZ, @NonNull LocationListener locationListener) {
             this.locationZ = locationZ;
             params = LocationParams.BEST_EFFORT;
             oneFix = false;
 
             if (!MAPPING.containsKey(locationZ.context)) {
-                MAPPING.put(locationZ.context, locationProvider);
+                MAPPING.put(locationZ.context, locationListener);
             }
             provider = MAPPING.get(locationZ.context);
 

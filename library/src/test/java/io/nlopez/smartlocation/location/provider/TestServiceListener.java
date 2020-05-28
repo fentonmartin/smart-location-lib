@@ -3,18 +3,18 @@ package io.nlopez.smartlocation.location.provider;
 import android.content.Context;
 import android.location.Location;
 
-import io.nlopez.smartlocation.location.ServiceLocationProvider;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
+import io.nlopez.smartlocation.location.listener.ServiceLocationListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
- * Test double for a {@link ServiceLocationProvider}.
+ * Test double for a {@link ServiceLocationListener}.
  *
  * @author abkaplan07
  */
-public class TestServiceProvider implements ServiceLocationProvider {
+public class TestServiceListener implements ServiceLocationListener {
 
     private ServiceConnectionListener listener;
     private int initCount;

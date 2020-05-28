@@ -23,17 +23,17 @@ import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 
 import io.nlopez.smartlocation.location.LocationStore;
-import io.nlopez.smartlocation.location.ServiceLocationProvider;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
+import io.nlopez.smartlocation.location.listener.ServiceLocationListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 20/12/14.
  */
-public class LocationGooglePlayServicesProvider implements ServiceLocationProvider, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, ResultCallback<Status> {
+public class LocationGooglePlayServicesListener implements ServiceLocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, ResultCallback<Status> {
 
     public static final int REQUEST_START_LOCATION_FIX = 10001;
     public static final int REQUEST_CHECK_SETTINGS = 20001;
@@ -53,17 +53,17 @@ public class LocationGooglePlayServicesProvider implements ServiceLocationProvid
     private boolean fulfilledCheckLocationSettings;
     private boolean alwaysShow = true;
 
-    public LocationGooglePlayServicesProvider() {
+    public LocationGooglePlayServicesListener() {
         checkLocationSettings =  false;
         fulfilledCheckLocationSettings = false;
     }
 
-    public LocationGooglePlayServicesProvider(GooglePlayServicesListener playServicesListener) {
+    public LocationGooglePlayServicesListener(GooglePlayServicesListener playServicesListener) {
         this();
         googlePlayServicesListener = playServicesListener;
     }
 
-    public LocationGooglePlayServicesProvider(ServiceConnectionListener serviceListener) {
+    public LocationGooglePlayServicesListener(ServiceConnectionListener serviceListener) {
         this();
         this.serviceListener = serviceListener;
     }

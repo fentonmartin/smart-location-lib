@@ -3,7 +3,7 @@ package io.nlopez.smartlocation.util;
 import android.content.Context;
 import android.location.Location;
 
-import io.nlopez.smartlocation.location.LocationProvider;
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
@@ -11,7 +11,7 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by mrm on 8/1/15.
  */
-public class MockLocationProvider implements LocationProvider {
+public class MockLocationListener implements LocationListener {
 
     private OnLocationUpdatedListener listener;
 

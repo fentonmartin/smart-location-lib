@@ -5,14 +5,13 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 
-import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.LocationStore;
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.util.LocationAccuracy;
 import io.nlopez.smartlocation.location.util.LocationParams;
@@ -21,7 +20,7 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by nacho on 12/23/14.
  */
-public class LocationManagerProvider implements LocationProvider, LocationListener {
+public class LocationManagerListener implements LocationListener, android.location.LocationListener {
     private static final String LOCATIONMANAGERPROVIDER_ID = "LMP";
 
     private LocationManager locationManager;

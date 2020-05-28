@@ -7,14 +7,14 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import io.nlopez.smartlocation.location.LocationProvider;
-import io.nlopez.smartlocation.location.ServiceLocationProvider;
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.location.listener.ServiceLocationListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
- * A {@link LocationProvider} that allows multiple location services to be used. <br/><br/> New
+ * A {@link LocationListener} that allows multiple location services to be used. <br/><br/> New
  * instances of <code>MultiFallbackProvider</code> must be initialized via the Builder class:
  * <pre>
  * LocationProvider provider = new MultiLocationProvider.Builder()
@@ -25,14 +25,14 @@ import io.nlopez.smartlocation.location.util.Logger;
  * <code>MultiFallbackProvider</code> will attempt to use the location services in the order they
  * were added to the builder.  If the provider fails to connect to the underlying service, the next
  * provider in the list is used. <br/><br/> If no providers are added to the builder, the {@link
- * LocationManagerProvider} is used by default.
+ * LocationManagerListener} is used by default.
  *
  * @author abkaplan07
  */
-public class MultiFallbackProvider implements LocationProvider {
+public class MultiFallbackListener implements LocationListener {
 
-    private Queue<LocationProvider> providers;
-    private LocationProvider currentProvider;
+    private Queue<LocationListener> providers;
+    private LocationListener currentProvider;
     private Context context;
     private Logger logger;
     private OnLocationUpdatedListener locationListener;
@@ -41,7 +41,7 @@ public class MultiFallbackProvider implements LocationProvider {
     private boolean shouldStart;
 
 
-    MultiFallbackProvider() {
+    MultiFallbackListener() {
         this.providers = new LinkedList<>();
     }
 
@@ -49,7 +49,7 @@ public class MultiFallbackProvider implements LocationProvider {
     public void init(Context context, Logger logger) {
         this.context = context;
         this.logger = logger;
-        LocationProvider current = getCurrentProvider();
+        LocationListener current = getCurrentProvider();
         if (current != null) {
             current.init(context, logger);
         }
@@ -63,7 +63,7 @@ public class MultiFallbackProvider implements LocationProvider {
         this.locationListener = listener;
         this.locationParams = params;
         this.singleUpdate = singleUpdate;
-        LocationProvider current = getCurrentProvider();
+        LocationListener current = getCurrentProvider();
         if (current != null) {
             current.start(listener, params, singleUpdate);
         }
@@ -71,7 +71,7 @@ public class MultiFallbackProvider implements LocationProvider {
 
     @Override
     public void stop() {
-        LocationProvider current = getCurrentProvider();
+        LocationListener current = getCurrentProvider();
         if (current != null) {
             current.stop();
         }
@@ -80,18 +80,18 @@ public class MultiFallbackProvider implements LocationProvider {
 
     @Override
     public Location getLastLocation() {
-        LocationProvider current = getCurrentProvider();
+        LocationListener current = getCurrentProvider();
         if (current == null) {
             return null;
         }
         return current.getLastLocation();
     }
 
-    boolean addProvider(LocationProvider provider) {
+    boolean addProvider(LocationListener provider) {
         return providers.add(provider);
     }
 
-    Collection<LocationProvider> getProviders() {
+    Collection<LocationListener> getProviders() {
         return providers;
     }
 
@@ -100,7 +100,7 @@ public class MultiFallbackProvider implements LocationProvider {
      *
      * @return the underlying <code>LocationProvider</code> used for location services.
      */
-    LocationProvider getCurrentProvider() {
+    LocationListener getCurrentProvider() {
         if (currentProvider == null && !providers.isEmpty()) {
             currentProvider = providers.poll();
         }
@@ -126,32 +126,32 @@ public class MultiFallbackProvider implements LocationProvider {
     }
 
     /**
-     * Builder class for the {@link MultiFallbackProvider}.
+     * Builder class for the {@link MultiFallbackListener}.
      */
     public static class Builder {
 
-        private MultiFallbackProvider builtProvider;
+        private MultiFallbackListener builtProvider;
 
         public Builder() {
-            this.builtProvider = new MultiFallbackProvider();
+            this.builtProvider = new MultiFallbackListener();
         }
 
         /**
          * Adds Google Location Services as a provider.
          */
         public Builder withGooglePlayServicesProvider() {
-            return withServiceProvider(new LocationGooglePlayServicesProvider());
+            return withServiceProvider(new LocationGooglePlayServicesListener());
         }
 
         /**
          * Adds the built-in Android Location Manager as a provider.
          */
         public Builder withDefaultProvider() {
-            return withProvider(new LocationManagerProvider());
+            return withProvider(new LocationManagerListener());
         }
 
         /**
-         * Adds the given {@link ServiceLocationProvider} as a location provider. If the given
+         * Adds the given {@link ServiceLocationListener} as a location provider. If the given
          * location provider detects that its underlying service is not available, the built
          * <code>MultiFallbackProvider</code> will fall back to the next location provider in the
          * list.
@@ -159,7 +159,7 @@ public class MultiFallbackProvider implements LocationProvider {
          * @param provider a <code>ServiceLocationProvider</code> that can detect if the underlying
          *                 location service is not available.
          */
-        public Builder withServiceProvider(ServiceLocationProvider provider) {
+        public Builder withServiceProvider(ServiceLocationListener provider) {
             FallbackListenerWrapper fallbackListener = new FallbackListenerWrapper(builtProvider,
                     provider);
             provider.setServiceListener(fallbackListener);
@@ -167,21 +167,21 @@ public class MultiFallbackProvider implements LocationProvider {
         }
 
         /**
-         * Adds the given {@link LocationProvider} as a provider. Note that these providers
+         * Adds the given {@link LocationListener} as a provider. Note that these providers
          * <strong>DO NOT</strong> support fallback behavior.
          *
          * @param provider a <code>LocationProvider</code> instance.
          */
-        public Builder withProvider(LocationProvider provider) {
+        public Builder withProvider(LocationListener provider) {
             builtProvider.addProvider(provider);
             return this;
         }
 
         /**
-         * Builds a {@link MultiFallbackProvider} instance. If no providers were added to the
+         * Builds a {@link MultiFallbackListener} instance. If no providers were added to the
          * builder, the built-in Android Location Manager is used.
          */
-        public MultiFallbackProvider build() {
+        public MultiFallbackListener build() {
             // Always ensure we have the default provider
             if (builtProvider.providers.isEmpty()) {
                 withDefaultProvider();

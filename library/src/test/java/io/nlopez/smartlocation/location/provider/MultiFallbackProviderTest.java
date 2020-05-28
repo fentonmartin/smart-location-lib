@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import io.nlopez.smartlocation.CustomTestRunner;
-import io.nlopez.smartlocation.location.LocationProvider;
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
@@ -26,7 +26,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * Unit tests for the {@link MultiFallbackProvider}
+ * Unit tests for the {@link MultiFallbackListener}
  *
  * @author abkaplan07
  */
@@ -36,32 +36,32 @@ public class MultiFallbackProviderTest {
 
     @Test
     public void testDefaultBuilder() {
-        MultiFallbackProvider subject = new MultiFallbackProvider.Builder().build();
-        checkExpectedProviders(subject, LocationManagerProvider.class);
+        MultiFallbackListener subject = new MultiFallbackListener.Builder().build();
+        checkExpectedProviders(subject, LocationManagerListener.class);
     }
 
     @Test
     public void testGoogleBuilder() {
-        MultiFallbackProvider subject = new MultiFallbackProvider.Builder()
+        MultiFallbackListener subject = new MultiFallbackListener.Builder()
                 .withGooglePlayServicesProvider().build();
-        checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class);
+        checkExpectedProviders(subject, LocationGooglePlayServicesListener.class);
     }
 
     @Test
     public void testMultiProviderBuilder() {
-        MultiFallbackProvider subject = new MultiFallbackProvider.Builder()
+        MultiFallbackListener subject = new MultiFallbackListener.Builder()
                 .withGooglePlayServicesProvider().withDefaultProvider().build();
-        checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class,
-                LocationManagerProvider.class);
+        checkExpectedProviders(subject, LocationGooglePlayServicesListener.class,
+                LocationManagerListener.class);
     }
 
     @Test
     public void testMultiProviderRun() {
-        TestServiceProvider testServiceProvider = new TestServiceProvider();
+        TestServiceListener testServiceProvider = new TestServiceListener();
         ServiceConnectionListener mockListener = mock(ServiceConnectionListener.class);
         testServiceProvider.setServiceListener(mockListener);
-        LocationProvider backupProvider = mock(LocationProvider.class);
-        MultiFallbackProvider subject = new MultiFallbackProvider.Builder().withServiceProvider
+        LocationListener backupProvider = mock(LocationListener.class);
+        MultiFallbackListener subject = new MultiFallbackListener.Builder().withServiceProvider
                 (testServiceProvider).withProvider(backupProvider).build();
 
         // Test initialization passes through to first provider
@@ -96,17 +96,17 @@ public class MultiFallbackProviderTest {
     }
 
     @SafeVarargs
-    private final void checkExpectedProviders(MultiFallbackProvider subject, Class<? extends
-            LocationProvider>... expectedProviders) {
-        Collection<LocationProvider> providers = subject.getProviders();
+    private final void checkExpectedProviders(MultiFallbackListener subject, Class<? extends
+            LocationListener>... expectedProviders) {
+        Collection<LocationListener> providers = subject.getProviders();
         assertEquals(expectedProviders.length, providers.size());
-        Iterator<LocationProvider> providerIt = providers.iterator();
+        Iterator<LocationListener> providerIt = providers.iterator();
         for (int i = 0; i < expectedProviders.length; i++) {
-            Class<? extends LocationProvider> expected = expectedProviders[i];
+            Class<? extends LocationListener> expected = expectedProviders[i];
             if (!providerIt.hasNext()) {
                 fail("providers list did not have expected value " + expected.getName());
             }
-            LocationProvider actual = providerIt.next();
+            LocationListener actual = providerIt.next();
             assertTrue("provider instance class " + actual.getClass().getName() + " does not " +
                     "match expected value " + expected.getName(), actual.getClass()
                     .isAssignableFrom(expected));

@@ -11,7 +11,7 @@ import org.robolectric.annotation.Config;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
-import io.nlopez.smartlocation.util.MockLocationProvider;
+import io.nlopez.smartlocation.util.MockLocationListener;
 
 import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Matchers.eq;
@@ -27,12 +27,12 @@ public class LocationControlTest {
     private static final LocationParams DEFAULT_PARAMS = LocationParams.BEST_EFFORT;
     private static final boolean DEFAULT_SINGLE_UPDATE = false;
 
-    private MockLocationProvider mockProvider;
+    private MockLocationListener mockProvider;
     private OnLocationUpdatedListener locationUpdatedListener;
 
     @Before
     public void setup() {
-        mockProvider = mock(MockLocationProvider.class);
+        mockProvider = mock(MockLocationListener.class);
         locationUpdatedListener = mock(OnLocationUpdatedListener.class);
     }
 

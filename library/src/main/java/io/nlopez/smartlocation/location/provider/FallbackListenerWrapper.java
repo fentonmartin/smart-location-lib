@@ -2,25 +2,25 @@ package io.nlopez.smartlocation.location.provider;
 
 import android.support.annotation.NonNull;
 
+import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
-import io.nlopez.smartlocation.location.LocationProvider;
-import io.nlopez.smartlocation.location.ServiceLocationProvider;
+import io.nlopez.smartlocation.location.listener.ServiceLocationListener;
 
 /**
  * A decorator for a {@link ServiceConnectionListener} used to execute the {@link
- * MultiFallbackProvider}'s failover.
+ * MultiFallbackListener}'s failover.
  *
  * @author abkaplan07
  */
 class FallbackListenerWrapper implements ServiceConnectionListener {
 
     private final ServiceConnectionListener listener;
-    private final MultiFallbackProvider fallbackProvider;
-    private final ServiceLocationProvider childProvider;
+    private final MultiFallbackListener fallbackProvider;
+    private final ServiceLocationListener childProvider;
 
 
-    public FallbackListenerWrapper(@NonNull MultiFallbackProvider parentProvider,
-                                   ServiceLocationProvider childProvider) {
+    public FallbackListenerWrapper(@NonNull MultiFallbackListener parentProvider,
+                                   ServiceLocationListener childProvider) {
         this.fallbackProvider = parentProvider;
         this.childProvider = childProvider;
         this.listener = childProvider.getServiceListener();
@@ -51,7 +51,7 @@ class FallbackListenerWrapper implements ServiceConnectionListener {
     }
 
     private void runFallback() {
-        LocationProvider current = fallbackProvider.getCurrentProvider();
+        LocationListener current = fallbackProvider.getCurrentProvider();
         if (current != null && current.equals(childProvider)) {
             fallbackProvider.fallbackProvider();
         }
