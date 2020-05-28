@@ -28,7 +28,7 @@ import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
-import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesProvider;
+import io.nlopez.smartlocation.location.provider.LocationProvider;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
 import io.nlopez.smartlocation.location.util.TransitionGeofence;
 
@@ -38,7 +38,7 @@ public class MainActivity extends Activity implements OnLocationUpdatedListener,
     private TextView activityText;
     private TextView geofenceText;
 
-    private LocationGooglePlayServicesProvider provider;
+    private LocationProvider provider;
 
     private static final int LOCATION_PERMISSION_ID = 1001;
 
@@ -117,7 +117,7 @@ public class MainActivity extends Activity implements OnLocationUpdatedListener,
 
     private void startLocation() {
 
-        provider = new LocationGooglePlayServicesProvider();
+        provider = new LocationProvider();
         provider.setCheckLocationSettings(true);
 
         LocationZ locationZ = new LocationZ.Builder(this).logging(true).build();

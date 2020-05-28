@@ -29,7 +29,7 @@ public class LocationFallbackProvider implements LocationListener, GooglePlaySer
 
     public LocationFallbackProvider(Context context) {
         if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS) {
-            provider = new LocationGooglePlayServicesProvider(this);
+            provider = new LocationProvider(this);
         } else {
             provider = new LocationManagerProvider();
         }

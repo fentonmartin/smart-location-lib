@@ -44,14 +44,14 @@ public class MultiFallbackProviderTest {
     public void testGoogleBuilder() {
         MultiFallbackProvider subject = new MultiFallbackProvider.Builder()
                 .withGooglePlayServicesProvider().build();
-        checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class);
+        checkExpectedProviders(subject, LocationProvider.class);
     }
 
     @Test
     public void testMultiProviderBuilder() {
         MultiFallbackProvider subject = new MultiFallbackProvider.Builder()
                 .withGooglePlayServicesProvider().withDefaultProvider().build();
-        checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class,
+        checkExpectedProviders(subject, LocationProvider.class,
                 LocationManagerProvider.class);
     }
 
