@@ -6,10 +6,10 @@ import android.support.annotation.NonNull;
 
 import com.google.android.gms.location.DetectedActivity;
 
-import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.location.util.ActivityParams;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
 

@@ -14,10 +14,10 @@ import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.LocationZ;
 import io.nlopez.smartlocation.location.activity.ActivityProvider;
-import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.location.util.ActivityParams;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
 import io.reactivex.observers.TestObserver;

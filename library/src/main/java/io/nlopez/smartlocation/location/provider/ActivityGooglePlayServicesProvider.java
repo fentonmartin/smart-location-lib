@@ -21,9 +21,9 @@ import com.google.android.gms.location.DetectedActivity;
 
 import io.nlopez.smartlocation.location.activity.ActivityProvider;
 import io.nlopez.smartlocation.location.activity.ActivityStore;
-import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
+import io.nlopez.smartlocation.location.util.ActivityParams;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
