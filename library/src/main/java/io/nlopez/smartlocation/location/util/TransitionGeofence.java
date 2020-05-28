@@ -1,6 +1,4 @@
-package io.nlopez.smartlocation.location.geofencing.utils;
-
-import io.nlopez.smartlocation.location.util.GeofenceModel;
+package io.nlopez.smartlocation.location.util;
 
 /**
  * Wraps Geofences and Transitions
