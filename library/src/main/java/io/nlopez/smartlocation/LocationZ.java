@@ -32,7 +32,7 @@ import io.nlopez.smartlocation.location.util.Logger;
 import io.nlopez.smartlocation.location.util.LoggerFactory;
 
 /**
- * Managing class for SmartLocation library.
+ * Managing class for LocationZ library.
  */
 public class LocationZ {
 
@@ -41,7 +41,7 @@ public class LocationZ {
     private boolean preInitialize;
 
     /**
-     * Creates the SmartLocation basic instance.
+     * Creates the LocationZ basic instance.
      *
      * @param context       execution context
      * @param logger        logger interface
