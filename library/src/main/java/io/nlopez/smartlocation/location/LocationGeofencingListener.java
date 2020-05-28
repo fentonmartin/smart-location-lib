@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.geofencing;
+package io.nlopez.smartlocation.location;
 
 import android.Manifest;
 import android.app.Activity;
@@ -37,11 +37,11 @@ import io.nlopez.smartlocation.location.util.TransitionGeofence;
 /**
  * Created by mrm on 3/1/15.
  */
-public class GeofencingGooglePlayServicesListener implements GeofencingListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
+public class LocationGeofencingListener implements GeofencingListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
 
     public static final int RESULT_CODE = 10003;
 
-    public static final String BROADCAST_INTENT_ACTION = GeofencingGooglePlayServicesListener.class.getCanonicalName() + ".GEOFENCE_TRANSITION";
+    public static final String BROADCAST_INTENT_ACTION = LocationGeofencingListener.class.getCanonicalName() + ".GEOFENCE_TRANSITION";
     public static final String GEOFENCES_EXTRA_ID = "geofences";
     public static final String TRANSITION_EXTRA_ID = "transition";
     public static final String LOCATION_EXTRA_ID = "location";
@@ -59,11 +59,11 @@ public class GeofencingGooglePlayServicesListener implements GeofencingListener,
     private final GooglePlayServicesListener googlePlayServicesListener;
 
 
-    public GeofencingGooglePlayServicesListener() {
+    public LocationGeofencingListener() {
         this(null);
     }
 
-    public GeofencingGooglePlayServicesListener(GooglePlayServicesListener playServicesListener) {
+    public LocationGeofencingListener(GooglePlayServicesListener playServicesListener) {
         googlePlayServicesListener = playServicesListener;
     }
 

@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 import io.nlopez.smartlocation.location.LocationGeocodingListener;
-import io.nlopez.smartlocation.location.geofencing.GeofencingGooglePlayServicesListener;
+import io.nlopez.smartlocation.location.LocationGeofencingListener;
 import io.nlopez.smartlocation.location.listener.GeocodingListener;
 import io.nlopez.smartlocation.location.listener.GeofencingListener;
 import io.nlopez.smartlocation.location.listener.LocationListener;
@@ -102,7 +102,7 @@ public class LocationZ {
      * @return request handler for geofencing operations
      */
     public GeofencingControl geofencing() {
-        return geofencing(new GeofencingGooglePlayServicesListener());
+        return geofencing(new LocationGeofencingListener());
     }
 
     /**
