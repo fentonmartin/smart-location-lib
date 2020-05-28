@@ -16,7 +16,7 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by mrm on 20/12/14.
  */
-public class LocationGooglePlayServicesFallbackProvider implements LocationListener, GooglePlayServicesListener {
+public class LocationFallbackProvider implements LocationListener, GooglePlayServicesListener {
 
     private Logger logger;
     private OnLocationUpdatedListener listener;
@@ -27,7 +27,7 @@ public class LocationGooglePlayServicesFallbackProvider implements LocationListe
 
     private LocationListener provider;
 
-    public LocationGooglePlayServicesFallbackProvider(Context context) {
+    public LocationFallbackProvider(Context context) {
         if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS) {
             provider = new LocationGooglePlayServicesProvider(this);
         } else {
