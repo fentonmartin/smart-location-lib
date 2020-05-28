@@ -10,7 +10,7 @@
 
     <application>
         <service
-            android:name=".location.provider.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+            android:name=".location.provider.ActivityProvider$ActivityRecognitionService"
             android:exported="false" />
         <service
             android:name=".location.LocationGeofencing$GeofencingService"

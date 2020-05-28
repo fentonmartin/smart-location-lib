@@ -23,18 +23,17 @@ import com.google.android.gms.location.DetectedActivity;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.util.ActivityParams;
-import io.nlopez.smartlocation.location.util.ActivityProvider;
 import io.nlopez.smartlocation.location.util.ActivityStore;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 3/1/15.
  */
-public class ActivityGooglePlayServicesProvider implements ActivityProvider, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
+public class ActivityProvider implements io.nlopez.smartlocation.location.util.ActivityProvider, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
     public static final int RESULT_CODE = 10002;
 
     private static final String GMS_ID = "GMS";
-    private static final String BROADCAST_INTENT_ACTION = ActivityGooglePlayServicesProvider.class.getCanonicalName() + ".DETECTED_ACTIVITY";
+    private static final String BROADCAST_INTENT_ACTION = ActivityProvider.class.getCanonicalName() + ".DETECTED_ACTIVITY";
     private static final String DETECTED_ACTIVITY_EXTRA_ID = "activity";
 
     private GoogleApiClient client;
@@ -49,11 +48,11 @@ public class ActivityGooglePlayServicesProvider implements ActivityProvider, Goo
     private final GooglePlayServicesListener googlePlayServicesListener;
 
 
-    public ActivityGooglePlayServicesProvider() {
+    public ActivityProvider() {
         this(null);
     }
 
-    public ActivityGooglePlayServicesProvider(GooglePlayServicesListener playServicesListener) {
+    public ActivityProvider(GooglePlayServicesListener playServicesListener) {
         googlePlayServicesListener = playServicesListener;
     }
 

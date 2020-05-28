@@ -22,10 +22,9 @@ import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
-import io.nlopez.smartlocation.location.provider.ActivityGooglePlayServicesProvider;
+import io.nlopez.smartlocation.location.provider.ActivityProvider;
 import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesFallbackProvider;
 import io.nlopez.smartlocation.location.util.ActivityParams;
-import io.nlopez.smartlocation.location.util.ActivityProvider;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.LocationState;
@@ -88,14 +87,14 @@ public class LocationZ {
      * @return request handler for activity recognition
      */
     public ActivityRecognitionControl activity() {
-        return activity(new ActivityGooglePlayServicesProvider());
+        return activity(new ActivityProvider());
     }
 
     /**
      * @param provider activity provider we want to use
      * @return request handler for activity recognition
      */
-    public ActivityRecognitionControl activity(ActivityProvider provider) {
+    public ActivityRecognitionControl activity(io.nlopez.smartlocation.location.util.ActivityProvider provider) {
         return new ActivityRecognitionControl(this, provider);
     }
 
@@ -317,13 +316,13 @@ public class LocationZ {
 
     public static class ActivityRecognitionControl {
 
-        private static final Map<Context, ActivityProvider> MAPPING = new WeakHashMap<>();
+        private static final Map<Context, io.nlopez.smartlocation.location.util.ActivityProvider> MAPPING = new WeakHashMap<>();
 
         private final LocationZ locationZ;
         private ActivityParams params;
-        private ActivityProvider provider;
+        private io.nlopez.smartlocation.location.util.ActivityProvider provider;
 
-        public ActivityRecognitionControl(@NonNull LocationZ locationZ, @NonNull ActivityProvider provider) {
+        public ActivityRecognitionControl(@NonNull LocationZ locationZ, @NonNull io.nlopez.smartlocation.location.util.ActivityProvider provider) {
             this.locationZ = locationZ;
             params = ActivityParams.NORMAL;
 
