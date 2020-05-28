@@ -2,8 +2,9 @@ package io.nlopez.smartlocation.location.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 /**
  * Created by mrm on 3/1/15.

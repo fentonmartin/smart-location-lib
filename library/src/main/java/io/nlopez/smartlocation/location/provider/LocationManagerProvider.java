@@ -8,7 +8,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.v4.app.ActivityCompat;
+
+import androidx.core.app.ActivityCompat;
 
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;

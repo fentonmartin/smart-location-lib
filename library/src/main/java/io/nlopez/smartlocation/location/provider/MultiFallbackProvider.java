@@ -2,7 +2,8 @@ package io.nlopez.smartlocation.location.provider;
 
 import android.content.Context;
 import android.location.Location;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.util.Collection;
 import java.util.LinkedList;
