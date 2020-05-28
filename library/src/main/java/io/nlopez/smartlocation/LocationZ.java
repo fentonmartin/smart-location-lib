@@ -129,6 +129,7 @@ public class LocationZ {
     }
 
     public static class Builder {
+
         private final Context context;
         private boolean loggingEnabled;
         private boolean preInitialize;
@@ -152,7 +153,6 @@ public class LocationZ {
         public LocationZ build() {
             return new LocationZ(context, LoggerFactory.buildLogger(loggingEnabled), preInitialize);
         }
-
     }
 
     public static class LocationControl {
@@ -303,7 +303,6 @@ public class LocationZ {
             if (reverseAdded && reverseGeocodingListener == null) {
                 locationZ.logger.w("Some places were added for reverse geocoding but the listener was not specified!");
             }
-
             provider.start(geocodingListener, reverseGeocodingListener);
         }
 
@@ -315,8 +314,8 @@ public class LocationZ {
         }
     }
 
-
     public static class ActivityRecognitionControl {
+
         private static final Map<Context, ActivityProvider> MAPPING = new WeakHashMap<>();
 
         private final LocationZ locationZ;
@@ -361,10 +360,10 @@ public class LocationZ {
         public void stop() {
             provider.stop();
         }
-
     }
 
     public static class GeofencingControl {
+
         private static final Map<Context, GeofencingListener> MAPPING = new WeakHashMap<>();
 
         private final LocationZ locationZ;
@@ -414,6 +413,4 @@ public class LocationZ {
             provider.stop();
         }
     }
-
-
 }
