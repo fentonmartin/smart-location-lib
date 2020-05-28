@@ -1,16 +1,14 @@
-package io.nlopez.smartlocation.location.geocoding;
+package io.nlopez.smartlocation.location.listener;
 
 import android.content.Context;
 import android.location.Location;
 
-import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
-import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 20/12/14.
  */
-public interface GeocodingProvider {
+public interface GeocodingListener {
     void init(Context context, Logger logger);
 
     void addName(String name, int maxResults);

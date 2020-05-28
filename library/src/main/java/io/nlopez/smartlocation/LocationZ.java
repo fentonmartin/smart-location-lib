@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import io.nlopez.smartlocation.location.geocoding.AndroidGeocodingProvider;
-import io.nlopez.smartlocation.location.geocoding.GeocodingProvider;
+import io.nlopez.smartlocation.location.geocoding.AndroidGeocodingListener;
 import io.nlopez.smartlocation.location.geofencing.GeofencingGooglePlayServicesProvider;
 import io.nlopez.smartlocation.location.geofencing.GeofencingProvider;
+import io.nlopez.smartlocation.location.listener.GeocodingListener;
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
@@ -117,14 +117,14 @@ public class LocationZ {
      * @return request handler for geocoding operations
      */
     public GeocodingControl geocoding() {
-        return geocoding(new AndroidGeocodingProvider());
+        return geocoding(new AndroidGeocodingListener());
     }
 
     /**
      * @param geocodingProvider geocoding provider we want to use
      * @return request handler for geocoding operations
      */
-    public GeocodingControl geocoding(GeocodingProvider geocodingProvider) {
+    public GeocodingControl geocoding(GeocodingListener geocodingProvider) {
         return new GeocodingControl(this, geocodingProvider);
     }
 
@@ -221,14 +221,14 @@ public class LocationZ {
 
     public static class GeocodingControl {
 
-        private static final Map<Context, GeocodingProvider> MAPPING = new WeakHashMap<>();
+        private static final Map<Context, GeocodingListener> MAPPING = new WeakHashMap<>();
 
         private final LocationZ locationZ;
-        private GeocodingProvider provider;
+        private GeocodingListener provider;
         private boolean directAdded = false;
         private boolean reverseAdded = false;
 
-        public GeocodingControl(@NonNull LocationZ locationZ, @NonNull GeocodingProvider geocodingProvider) {
+        public GeocodingControl(@NonNull LocationZ locationZ, @NonNull GeocodingListener geocodingProvider) {
             this.locationZ = locationZ;
 
             if (!MAPPING.containsKey(locationZ.context)) {
