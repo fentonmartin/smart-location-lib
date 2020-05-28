@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import io.nlopez.smartlocation.location.geocoding.AndroidGeocodingListener;
+import io.nlopez.smartlocation.location.LocationGeocodingListener;
 import io.nlopez.smartlocation.location.geofencing.GeofencingGooglePlayServicesProvider;
 import io.nlopez.smartlocation.location.geofencing.GeofencingProvider;
 import io.nlopez.smartlocation.location.listener.GeocodingListener;
@@ -117,7 +117,7 @@ public class LocationZ {
      * @return request handler for geocoding operations
      */
     public GeocodingControl geocoding() {
-        return geocoding(new AndroidGeocodingListener());
+        return geocoding(new LocationGeocodingListener());
     }
 
     /**

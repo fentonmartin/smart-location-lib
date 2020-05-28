@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.geocoding;
+package io.nlopez.smartlocation.location;
 
 import android.app.IntentService;
 import android.content.BroadcastReceiver;
@@ -24,9 +24,9 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Geocoding provider based on Android's Geocoder class.
  */
-public class AndroidGeocodingListener implements GeocodingListener {
-    private static final String BROADCAST_DIRECT_GEOCODING_ACTION = AndroidGeocodingListener.class.getCanonicalName() + ".DIRECT_GEOCODE_ACTION";
-    private static final String BROADCAST_REVERSE_GEOCODING_ACTION = AndroidGeocodingListener.class.getCanonicalName() + ".REVERSE_GEOCODE_ACTION";
+public class LocationGeocodingListener implements GeocodingListener {
+    private static final String BROADCAST_DIRECT_GEOCODING_ACTION = LocationGeocodingListener.class.getCanonicalName() + ".DIRECT_GEOCODE_ACTION";
+    private static final String BROADCAST_REVERSE_GEOCODING_ACTION = LocationGeocodingListener.class.getCanonicalName() + ".REVERSE_GEOCODE_ACTION";
     private static final String DIRECT_GEOCODING_ID = "direct";
     private static final String REVERSE_GEOCODING_ID = "reverse";
     private static final String LOCALE_ID = "locale";
@@ -43,11 +43,11 @@ public class AndroidGeocodingListener implements GeocodingListener {
     private Context context;
     private Logger logger;
 
-    public AndroidGeocodingListener() {
+    public LocationGeocodingListener() {
         this(Locale.getDefault());
     }
 
-    public AndroidGeocodingListener(Locale locale) {
+    public LocationGeocodingListener(Locale locale) {
         if (locale == null) {
             // This should be super weird
             throw new RuntimeException("Locale is null");
