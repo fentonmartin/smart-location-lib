@@ -142,7 +142,7 @@ public class MultiFallbackListener implements LocationListener {
          * Adds Google Location Services as a provider.
          */
         public Builder withGooglePlayServicesProvider() {
-            return withServiceProvider(new LocationGooglePlayServicesListener());
+            return withServiceProvider(new LocationGooglePlayServicesProvider());
         }
 
         /**

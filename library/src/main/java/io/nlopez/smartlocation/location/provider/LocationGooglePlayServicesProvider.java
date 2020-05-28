@@ -33,7 +33,7 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by mrm on 20/12/14.
  */
-public class LocationGooglePlayServicesListener implements ServiceLocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, ResultCallback<Status> {
+public class LocationGooglePlayServicesProvider implements ServiceLocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, ResultCallback<Status> {
 
     public static final int REQUEST_START_LOCATION_FIX = 10001;
     public static final int REQUEST_CHECK_SETTINGS = 20001;
@@ -53,17 +53,17 @@ public class LocationGooglePlayServicesListener implements ServiceLocationListen
     private boolean fulfilledCheckLocationSettings;
     private boolean alwaysShow = true;
 
-    public LocationGooglePlayServicesListener() {
+    public LocationGooglePlayServicesProvider() {
         checkLocationSettings =  false;
         fulfilledCheckLocationSettings = false;
     }
 
-    public LocationGooglePlayServicesListener(GooglePlayServicesListener playServicesListener) {
+    public LocationGooglePlayServicesProvider(GooglePlayServicesListener playServicesListener) {
         this();
         googlePlayServicesListener = playServicesListener;
     }
 
-    public LocationGooglePlayServicesListener(ServiceConnectionListener serviceListener) {
+    public LocationGooglePlayServicesProvider(ServiceConnectionListener serviceListener) {
         this();
         this.serviceListener = serviceListener;
     }

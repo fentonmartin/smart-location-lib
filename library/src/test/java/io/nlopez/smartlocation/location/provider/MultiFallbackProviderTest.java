@@ -44,14 +44,14 @@ public class MultiFallbackProviderTest {
     public void testGoogleBuilder() {
         MultiFallbackListener subject = new MultiFallbackListener.Builder()
                 .withGooglePlayServicesProvider().build();
-        checkExpectedProviders(subject, LocationGooglePlayServicesListener.class);
+        checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class);
     }
 
     @Test
     public void testMultiProviderBuilder() {
         MultiFallbackListener subject = new MultiFallbackListener.Builder()
                 .withGooglePlayServicesProvider().withDefaultProvider().build();
-        checkExpectedProviders(subject, LocationGooglePlayServicesListener.class,
+        checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class,
                 LocationManagerListener.class);
     }
 
