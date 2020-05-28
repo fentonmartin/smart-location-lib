@@ -12,9 +12,9 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 import io.nlopez.smartlocation.location.LocationGeocodingListener;
-import io.nlopez.smartlocation.location.geofencing.GeofencingGooglePlayServicesProvider;
-import io.nlopez.smartlocation.location.geofencing.GeofencingProvider;
+import io.nlopez.smartlocation.location.geofencing.GeofencingGooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.GeocodingListener;
+import io.nlopez.smartlocation.location.listener.GeofencingListener;
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
@@ -102,15 +102,15 @@ public class LocationZ {
      * @return request handler for geofencing operations
      */
     public GeofencingControl geofencing() {
-        return geofencing(new GeofencingGooglePlayServicesProvider());
+        return geofencing(new GeofencingGooglePlayServicesListener());
     }
 
     /**
-     * @param geofencingProvider geofencing provider we want to use
+     * @param geofencingListener geofencing provider we want to use
      * @return request handler for geofencing operations
      */
-    public GeofencingControl geofencing(GeofencingProvider geofencingProvider) {
-        return new GeofencingControl(this, geofencingProvider);
+    public GeofencingControl geofencing(GeofencingListener geofencingListener) {
+        return new GeofencingControl(this, geofencingListener);
     }
 
     /**
@@ -365,16 +365,16 @@ public class LocationZ {
     }
 
     public static class GeofencingControl {
-        private static final Map<Context, GeofencingProvider> MAPPING = new WeakHashMap<>();
+        private static final Map<Context, GeofencingListener> MAPPING = new WeakHashMap<>();
 
         private final LocationZ locationZ;
-        private GeofencingProvider provider;
+        private GeofencingListener provider;
 
-        public GeofencingControl(@NonNull LocationZ locationZ, @NonNull GeofencingProvider geofencingProvider) {
+        public GeofencingControl(@NonNull LocationZ locationZ, @NonNull GeofencingListener geofencingListener) {
             this.locationZ = locationZ;
 
             if (!MAPPING.containsKey(locationZ.context)) {
-                MAPPING.put(locationZ.context, geofencingProvider);
+                MAPPING.put(locationZ.context, geofencingListener);
             }
             provider = MAPPING.get(locationZ.context);
 

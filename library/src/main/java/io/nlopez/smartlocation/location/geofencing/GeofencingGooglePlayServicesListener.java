@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import io.nlopez.smartlocation.location.listener.GeofencingListener;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
@@ -36,11 +37,11 @@ import io.nlopez.smartlocation.location.util.TransitionGeofence;
 /**
  * Created by mrm on 3/1/15.
  */
-public class GeofencingGooglePlayServicesProvider implements GeofencingProvider, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
+public class GeofencingGooglePlayServicesListener implements GeofencingListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
 
     public static final int RESULT_CODE = 10003;
 
-    public static final String BROADCAST_INTENT_ACTION = GeofencingGooglePlayServicesProvider.class.getCanonicalName() + ".GEOFENCE_TRANSITION";
+    public static final String BROADCAST_INTENT_ACTION = GeofencingGooglePlayServicesListener.class.getCanonicalName() + ".GEOFENCE_TRANSITION";
     public static final String GEOFENCES_EXTRA_ID = "geofences";
     public static final String TRANSITION_EXTRA_ID = "transition";
     public static final String LOCATION_EXTRA_ID = "location";
@@ -58,11 +59,11 @@ public class GeofencingGooglePlayServicesProvider implements GeofencingProvider,
     private final GooglePlayServicesListener googlePlayServicesListener;
 
 
-    public GeofencingGooglePlayServicesProvider() {
+    public GeofencingGooglePlayServicesListener() {
         this(null);
     }
 
-    public GeofencingGooglePlayServicesProvider(GooglePlayServicesListener playServicesListener) {
+    public GeofencingGooglePlayServicesListener(GooglePlayServicesListener playServicesListener) {
         googlePlayServicesListener = playServicesListener;
     }
 

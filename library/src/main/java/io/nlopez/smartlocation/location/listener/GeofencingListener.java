@@ -1,17 +1,16 @@
-package io.nlopez.smartlocation.location.geofencing;
+package io.nlopez.smartlocation.location.listener;
 
 import android.content.Context;
 
 import java.util.List;
 
-import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
 import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 20/12/14.
  */
-public interface GeofencingProvider {
+public interface GeofencingListener {
     void init(Context context, Logger logger);
 
     void start(OnGeofencingTransitionListener listener);
