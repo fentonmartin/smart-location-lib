@@ -22,7 +22,7 @@ import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.location.provider.ActivityGooglePlayServicesProvider;
-import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesWithFallbackListener;
+import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesFallbackProvider;
 import io.nlopez.smartlocation.location.util.ActivityParams;
 import io.nlopez.smartlocation.location.util.ActivityProvider;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
@@ -61,7 +61,7 @@ public class LocationZ {
      * @return request handler for location operations
      */
     public LocationControl location() {
-        return location(new LocationGooglePlayServicesWithFallbackListener(context));
+        return location(new LocationGooglePlayServicesFallbackProvider(context));
     }
 
     /**
