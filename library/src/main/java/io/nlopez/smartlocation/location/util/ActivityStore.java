@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.activity;
+package io.nlopez.smartlocation.location.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,8 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import com.google.android.gms.location.DetectedActivity;
-
-import io.nlopez.smartlocation.location.util.Store;
 
 /**
  * Stores activities

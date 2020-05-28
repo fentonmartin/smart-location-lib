@@ -12,6 +12,7 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.CustomTestRunner;
+import io.nlopez.smartlocation.location.util.ActivityStore;
 
 /**
  * Tests {@link ActivityStore}
