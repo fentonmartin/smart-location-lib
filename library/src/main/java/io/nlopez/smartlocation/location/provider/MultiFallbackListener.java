@@ -27,7 +27,7 @@ import io.nlopez.smartlocation.location.util.Logger;
  * <code>MultiFallbackProvider</code> will attempt to use the location services in the order they
  * were added to the builder.  If the provider fails to connect to the underlying service, the next
  * provider in the list is used. <br/><br/> If no providers are added to the builder, the {@link
- * LocationManagerListener} is used by default.
+ * LocationManagerProvider} is used by default.
  *
  * @author abkaplan07
  */
@@ -149,7 +149,7 @@ public class MultiFallbackListener implements LocationListener {
          * Adds the built-in Android Location Manager as a provider.
          */
         public Builder withDefaultProvider() {
-            return withProvider(new LocationManagerListener());
+            return withProvider(new LocationManagerProvider());
         }
 
         /**

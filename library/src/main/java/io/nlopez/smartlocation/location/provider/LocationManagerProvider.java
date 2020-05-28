@@ -20,7 +20,7 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Created by nacho on 12/23/14.
  */
-public class LocationManagerListener implements LocationListener, android.location.LocationListener {
+public class LocationManagerProvider implements LocationListener, android.location.LocationListener {
     private static final String LOCATIONMANAGERPROVIDER_ID = "LMP";
 
     private LocationManager locationManager;

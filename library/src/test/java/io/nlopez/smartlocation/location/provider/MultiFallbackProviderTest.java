@@ -37,7 +37,7 @@ public class MultiFallbackProviderTest {
     @Test
     public void testDefaultBuilder() {
         MultiFallbackListener subject = new MultiFallbackListener.Builder().build();
-        checkExpectedProviders(subject, LocationManagerListener.class);
+        checkExpectedProviders(subject, LocationManagerProvider.class);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class MultiFallbackProviderTest {
         MultiFallbackListener subject = new MultiFallbackListener.Builder()
                 .withGooglePlayServicesProvider().withDefaultProvider().build();
         checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class,
-                LocationManagerListener.class);
+                LocationManagerProvider.class);
     }
 
     @Test

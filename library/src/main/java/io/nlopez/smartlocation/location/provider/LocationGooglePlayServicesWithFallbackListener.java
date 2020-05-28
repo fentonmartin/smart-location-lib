@@ -31,7 +31,7 @@ public class LocationGooglePlayServicesWithFallbackListener implements LocationL
         if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS) {
             provider = new LocationGooglePlayServicesProvider(this);
         } else {
-            provider = new LocationManagerListener();
+            provider = new LocationManagerProvider();
         }
     }
 
@@ -82,7 +82,7 @@ public class LocationGooglePlayServicesWithFallbackListener implements LocationL
 
     private void fallbackToLocationManager() {
         logger.d("FusedLocationProvider not working, falling back and using LocationManager");
-        provider = new LocationManagerListener();
+        provider = new LocationManagerProvider();
         provider.init(context, logger);
         if (shouldStart) {
             provider.start(listener, params, singleUpdate);
