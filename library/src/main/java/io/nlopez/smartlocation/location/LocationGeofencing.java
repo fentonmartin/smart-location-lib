@@ -37,11 +37,11 @@ import io.nlopez.smartlocation.location.util.TransitionGeofence;
 /**
  * Created by mrm on 3/1/15.
  */
-public class LocationGeofencingListener implements GeofencingListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
+public class LocationGeofencing implements GeofencingListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status> {
 
     public static final int RESULT_CODE = 10003;
 
-    public static final String BROADCAST_INTENT_ACTION = LocationGeofencingListener.class.getCanonicalName() + ".GEOFENCE_TRANSITION";
+    public static final String BROADCAST_INTENT_ACTION = LocationGeofencing.class.getCanonicalName() + ".GEOFENCE_TRANSITION";
     public static final String GEOFENCES_EXTRA_ID = "geofences";
     public static final String TRANSITION_EXTRA_ID = "transition";
     public static final String LOCATION_EXTRA_ID = "location";
@@ -59,11 +59,11 @@ public class LocationGeofencingListener implements GeofencingListener, GoogleApi
     private final GooglePlayServicesListener googlePlayServicesListener;
 
 
-    public LocationGeofencingListener() {
+    public LocationGeofencing() {
         this(null);
     }
 
-    public LocationGeofencingListener(GooglePlayServicesListener playServicesListener) {
+    public LocationGeofencing(GooglePlayServicesListener playServicesListener) {
         googlePlayServicesListener = playServicesListener;
     }
 

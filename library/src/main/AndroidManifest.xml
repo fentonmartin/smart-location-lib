@@ -14,7 +14,7 @@
             android:name=".location.provider.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
             android:exported="false" />
         <service
-            android:name=".location.LocationGeofencingListener$GeofencingService"
+            android:name=".location.LocationGeofencing$GeofencingService"
             android:exported="false" />
         <service
             android:name=".location.LocationGeocoding$AndroidGeocodingService"
