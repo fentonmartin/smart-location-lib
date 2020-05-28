@@ -1,4 +1,4 @@
-package io.nlopez.smartlocation.location.utils;
+package io.nlopez.smartlocation.location.util;
 
 /**
  * Created by mrm on 2/1/15.

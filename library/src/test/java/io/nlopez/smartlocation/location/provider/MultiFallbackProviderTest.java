@@ -14,8 +14,8 @@ import io.nlopez.smartlocation.CustomTestRunner;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
-import io.nlopez.smartlocation.location.utils.LocationParams;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.LocationParams;
+import io.nlopez.smartlocation.location.util.Logger;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;

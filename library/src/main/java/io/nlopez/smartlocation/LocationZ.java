@@ -26,10 +26,10 @@ import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.location.provider.ActivityGooglePlayServicesProvider;
 import io.nlopez.smartlocation.location.provider.LocationGooglePlayServicesWithFallbackProvider;
-import io.nlopez.smartlocation.location.utils.LocationParams;
-import io.nlopez.smartlocation.location.utils.LocationState;
-import io.nlopez.smartlocation.location.utils.Logger;
-import io.nlopez.smartlocation.location.utils.LoggerFactory;
+import io.nlopez.smartlocation.location.util.LocationParams;
+import io.nlopez.smartlocation.location.util.LocationState;
+import io.nlopez.smartlocation.location.util.Logger;
+import io.nlopez.smartlocation.location.util.LoggerFactory;
 
 /**
  * Managing class for SmartLocation library.

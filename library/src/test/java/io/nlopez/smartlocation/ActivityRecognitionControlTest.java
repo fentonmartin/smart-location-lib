@@ -10,7 +10,7 @@ import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.Logger;
 import io.nlopez.smartlocation.util.MockActivityRecognitionProvider;
 
 import static org.mockito.Matchers.eq;

@@ -5,8 +5,8 @@ import android.location.Location;
 
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.location.utils.LocationParams;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.LocationParams;
+import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 8/1/15.

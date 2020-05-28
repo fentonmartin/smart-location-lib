@@ -10,8 +10,8 @@ import java.util.Queue;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.ServiceLocationProvider;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.location.utils.LocationParams;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.LocationParams;
+import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * A {@link LocationProvider} that allows multiple location services to be used. <br/><br/> New

@@ -10,8 +10,8 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.location.utils.LocationParams;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.LocationParams;
+import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 20/12/14.

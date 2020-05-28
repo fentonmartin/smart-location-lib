@@ -27,8 +27,8 @@ import io.nlopez.smartlocation.location.ServiceLocationProvider;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
-import io.nlopez.smartlocation.location.utils.LocationParams;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.LocationParams;
+import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 20/12/14.

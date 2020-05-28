@@ -5,7 +5,7 @@ import android.location.Location;
 
 import io.nlopez.smartlocation.location.listener.OnGeocodingListener;
 import io.nlopez.smartlocation.location.listener.OnReverseGeocodingListener;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 20/12/14.

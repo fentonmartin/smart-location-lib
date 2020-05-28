@@ -14,9 +14,9 @@ import android.support.v4.app.ActivityCompat;
 import io.nlopez.smartlocation.location.LocationProvider;
 import io.nlopez.smartlocation.location.LocationStore;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
-import io.nlopez.smartlocation.location.utils.LocationAccuracy;
-import io.nlopez.smartlocation.location.utils.LocationParams;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.LocationAccuracy;
+import io.nlopez.smartlocation.location.util.LocationParams;
+import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by nacho on 12/23/14.

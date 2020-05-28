@@ -24,7 +24,7 @@ import io.nlopez.smartlocation.location.activity.ActivityStore;
 import io.nlopez.smartlocation.location.activity.config.ActivityParams;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnActivityUpdatedListener;
-import io.nlopez.smartlocation.location.utils.Logger;
+import io.nlopez.smartlocation.location.util.Logger;
 
 /**
  * Created by mrm on 3/1/15.
