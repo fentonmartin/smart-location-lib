@@ -17,7 +17,7 @@
             android:name=".location.LocationGeofencingListener$GeofencingService"
             android:exported="false" />
         <service
-            android:name=".location.LocationGeocodingListener$AndroidGeocodingService"
+            android:name=".location.LocationGeocoding$AndroidGeocodingService"
             android:exported="false" />
     </application>
 </manifest>

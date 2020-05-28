@@ -24,9 +24,9 @@ import io.nlopez.smartlocation.location.util.Logger;
 /**
  * Geocoding provider based on Android's Geocoder class.
  */
-public class LocationGeocodingListener implements GeocodingListener {
-    private static final String BROADCAST_DIRECT_GEOCODING_ACTION = LocationGeocodingListener.class.getCanonicalName() + ".DIRECT_GEOCODE_ACTION";
-    private static final String BROADCAST_REVERSE_GEOCODING_ACTION = LocationGeocodingListener.class.getCanonicalName() + ".REVERSE_GEOCODE_ACTION";
+public class LocationGeocoding implements GeocodingListener {
+    private static final String BROADCAST_DIRECT_GEOCODING_ACTION = LocationGeocoding.class.getCanonicalName() + ".DIRECT_GEOCODE_ACTION";
+    private static final String BROADCAST_REVERSE_GEOCODING_ACTION = LocationGeocoding.class.getCanonicalName() + ".REVERSE_GEOCODE_ACTION";
     private static final String DIRECT_GEOCODING_ID = "direct";
     private static final String REVERSE_GEOCODING_ID = "reverse";
     private static final String LOCALE_ID = "locale";
@@ -43,11 +43,11 @@ public class LocationGeocodingListener implements GeocodingListener {
     private Context context;
     private Logger logger;
 
-    public LocationGeocodingListener() {
+    public LocationGeocoding() {
         this(Locale.getDefault());
     }
 
-    public LocationGeocodingListener(Locale locale) {
+    public LocationGeocoding(Locale locale) {
         if (locale == null) {
             // This should be super weird
             throw new RuntimeException("Locale is null");
