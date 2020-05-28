@@ -2,6 +2,7 @@ package io.nlopez.smartlocation.location.provider;
 
 import android.content.Context;
 import android.location.Location;
+import android.support.annotation.NonNull;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -9,6 +10,7 @@ import java.util.Queue;
 
 import io.nlopez.smartlocation.location.listener.LocationListener;
 import io.nlopez.smartlocation.location.listener.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.location.listener.ServiceConnectionListener;
 import io.nlopez.smartlocation.location.listener.ServiceLocationListener;
 import io.nlopez.smartlocation.location.util.LocationParams;
 import io.nlopez.smartlocation.location.util.Logger;
@@ -187,6 +189,52 @@ public class MultiFallbackListener implements LocationListener {
                 withDefaultProvider();
             }
             return builtProvider;
+        }
+    }
+
+    static class FallbackListenerWrapper implements ServiceConnectionListener {
+
+        private final ServiceConnectionListener listener;
+        private final MultiFallbackListener fallbackProvider;
+        private final ServiceLocationListener childProvider;
+
+
+        public FallbackListenerWrapper(@NonNull MultiFallbackListener parentProvider,
+                                       ServiceLocationListener childProvider) {
+            this.fallbackProvider = parentProvider;
+            this.childProvider = childProvider;
+            this.listener = childProvider.getServiceListener();
+        }
+
+        @Override
+        public void onConnected() {
+            if (listener != null) {
+                listener.onConnected();
+            }
+        }
+
+        @Override
+        public void onConnectionSuspended() {
+            if (listener != null) {
+                listener.onConnectionSuspended();
+            }
+            runFallback();
+
+        }
+
+        @Override
+        public void onConnectionFailed() {
+            if (listener != null) {
+                listener.onConnectionFailed();
+            }
+            runFallback();
+        }
+
+        private void runFallback() {
+            LocationListener current = fallbackProvider.getCurrentProvider();
+            if (current != null && current.equals(childProvider)) {
+                fallbackProvider.fallbackProvider();
+            }
         }
     }
 }
