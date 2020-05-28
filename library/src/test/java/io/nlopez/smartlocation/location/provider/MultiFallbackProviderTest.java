@@ -26,7 +26,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * Unit tests for the {@link MultiFallbackListener}
+ * Unit tests for the {@link MultiFallbackProvider}
  *
  * @author abkaplan07
  */
@@ -36,20 +36,20 @@ public class MultiFallbackProviderTest {
 
     @Test
     public void testDefaultBuilder() {
-        MultiFallbackListener subject = new MultiFallbackListener.Builder().build();
+        MultiFallbackProvider subject = new MultiFallbackProvider.Builder().build();
         checkExpectedProviders(subject, LocationManagerProvider.class);
     }
 
     @Test
     public void testGoogleBuilder() {
-        MultiFallbackListener subject = new MultiFallbackListener.Builder()
+        MultiFallbackProvider subject = new MultiFallbackProvider.Builder()
                 .withGooglePlayServicesProvider().build();
         checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class);
     }
 
     @Test
     public void testMultiProviderBuilder() {
-        MultiFallbackListener subject = new MultiFallbackListener.Builder()
+        MultiFallbackProvider subject = new MultiFallbackProvider.Builder()
                 .withGooglePlayServicesProvider().withDefaultProvider().build();
         checkExpectedProviders(subject, LocationGooglePlayServicesProvider.class,
                 LocationManagerProvider.class);
@@ -61,7 +61,7 @@ public class MultiFallbackProviderTest {
         ServiceConnectionListener mockListener = mock(ServiceConnectionListener.class);
         testServiceProvider.setServiceListener(mockListener);
         LocationListener backupProvider = mock(LocationListener.class);
-        MultiFallbackListener subject = new MultiFallbackListener.Builder().withServiceProvider
+        MultiFallbackProvider subject = new MultiFallbackProvider.Builder().withServiceProvider
                 (testServiceProvider).withProvider(backupProvider).build();
 
         // Test initialization passes through to first provider
@@ -96,7 +96,7 @@ public class MultiFallbackProviderTest {
     }
 
     @SafeVarargs
-    private final void checkExpectedProviders(MultiFallbackListener subject, Class<? extends
+    private final void checkExpectedProviders(MultiFallbackProvider subject, Class<? extends
             LocationListener>... expectedProviders) {
         Collection<LocationListener> providers = subject.getProviders();
         assertEquals(expectedProviders.length, providers.size());

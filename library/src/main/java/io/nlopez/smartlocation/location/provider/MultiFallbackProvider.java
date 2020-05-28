@@ -31,7 +31,7 @@ import io.nlopez.smartlocation.location.util.Logger;
  *
  * @author abkaplan07
  */
-public class MultiFallbackListener implements LocationListener {
+public class MultiFallbackProvider implements LocationListener {
 
     private Queue<LocationListener> providers;
     private LocationListener currentProvider;
@@ -43,7 +43,7 @@ public class MultiFallbackListener implements LocationListener {
     private boolean shouldStart;
 
 
-    MultiFallbackListener() {
+    MultiFallbackProvider() {
         this.providers = new LinkedList<>();
     }
 
@@ -128,14 +128,14 @@ public class MultiFallbackListener implements LocationListener {
     }
 
     /**
-     * Builder class for the {@link MultiFallbackListener}.
+     * Builder class for the {@link MultiFallbackProvider}.
      */
     public static class Builder {
 
-        private MultiFallbackListener builtProvider;
+        private MultiFallbackProvider builtProvider;
 
         public Builder() {
-            this.builtProvider = new MultiFallbackListener();
+            this.builtProvider = new MultiFallbackProvider();
         }
 
         /**
@@ -180,10 +180,10 @@ public class MultiFallbackListener implements LocationListener {
         }
 
         /**
-         * Builds a {@link MultiFallbackListener} instance. If no providers were added to the
+         * Builds a {@link MultiFallbackProvider} instance. If no providers were added to the
          * builder, the built-in Android Location Manager is used.
          */
-        public MultiFallbackListener build() {
+        public MultiFallbackProvider build() {
             // Always ensure we have the default provider
             if (builtProvider.providers.isEmpty()) {
                 withDefaultProvider();
@@ -195,11 +195,11 @@ public class MultiFallbackListener implements LocationListener {
     static class FallbackListenerWrapper implements ServiceConnectionListener {
 
         private final ServiceConnectionListener listener;
-        private final MultiFallbackListener fallbackProvider;
+        private final MultiFallbackProvider fallbackProvider;
         private final ServiceLocationListener childProvider;
 
 
-        public FallbackListenerWrapper(@NonNull MultiFallbackListener parentProvider,
+        public FallbackListenerWrapper(@NonNull MultiFallbackProvider parentProvider,
                                        ServiceLocationListener childProvider) {
             this.fallbackProvider = parentProvider;
             this.childProvider = childProvider;
