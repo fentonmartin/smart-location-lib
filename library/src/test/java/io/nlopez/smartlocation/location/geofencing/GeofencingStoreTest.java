@@ -14,6 +14,7 @@ import org.robolectric.annotation.Config;
 
 import io.nlopez.smartlocation.CustomTestRunner;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
+import io.nlopez.smartlocation.location.util.GeofencingStore;
 
 /**
  * Created by nacho on 1/9/15.

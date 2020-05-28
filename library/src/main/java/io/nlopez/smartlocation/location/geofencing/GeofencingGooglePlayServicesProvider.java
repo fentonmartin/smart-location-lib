@@ -29,6 +29,7 @@ import java.util.List;
 import io.nlopez.smartlocation.location.listener.GooglePlayServicesListener;
 import io.nlopez.smartlocation.location.listener.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.location.util.GeofenceModel;
+import io.nlopez.smartlocation.location.util.GeofencingStore;
 import io.nlopez.smartlocation.location.util.Logger;
 import io.nlopez.smartlocation.location.util.TransitionGeofence;
 
